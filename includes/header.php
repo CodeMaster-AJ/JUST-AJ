@@ -39,6 +39,7 @@ $siteTagline = getSetting('site_tagline', 'Building tools, content, and systems 
                     <li><a href="<?php echo SITE_URL; ?>/about.php" class="<?php echo $currentPage === 'about' ? 'active' : ''; ?>">About</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/blog/" class="<?php echo $currentPage === 'blog' ? 'active' : ''; ?>">Blog</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/tools/" class="<?php echo $currentPage === 'tools' ? 'active' : ''; ?>">Tools</a></li>
+                    <li><a href="<?php echo SITE_URL; ?>/products/" class="<?php echo $currentPage === 'products' ? 'active' : ''; ?>">Products</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/projects.php" class="<?php echo $currentPage === 'projects' ? 'active' : ''; ?>">Projects</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/services.php" class="<?php echo $currentPage === 'services' ? 'active' : ''; ?>">Services</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/contact.php" class="<?php echo $currentPage === 'contact' ? 'active' : ''; ?>">Contact</a></li>

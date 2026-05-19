@@ -1,6 +1,6 @@
 -- ================================================
--- JUST AJ Brand Portal - Database Schema v4
--- Complete with Blog Feature & Tools Module
+-- JUST AJ Brand Portal - Database Schema v5
+-- Complete with Blog, Tools & Products Module
 -- ================================================
 
 -- Create database if not exists
@@ -350,3 +350,42 @@ CREATE TABLE `analytics_events` (
     KEY `created_at` (`created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 */
+-- ================================================
+-- PRODUCT CATEGORIES TABLE (Added in v5)
+-- ================================================
+CREATE TABLE IF NOT EXISTS `product_categories` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    `slug` VARCHAR(255) NOT NULL,
+    `description` TEXT,
+    `sort_order` INT(11) DEFAULT 0,
+    `status` ENUM('active', 'inactive') DEFAULT 'active',
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `slug` (`slug`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ================================================
+-- PRODUCTS TABLE (Added in v5)
+-- ================================================
+CREATE TABLE IF NOT EXISTS `products` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `category_id` INT(11),
+    `name` VARCHAR(255) NOT NULL,
+    `slug` VARCHAR(255) NOT NULL,
+    `description` TEXT,
+    `short_description` VARCHAR(500),
+    `price` DECIMAL(10,2) DEFAULT 0.00,
+    `is_free` ENUM('yes', 'no') DEFAULT 'no',
+    `file_path` VARCHAR(500),
+    `preview_image` VARCHAR(500),
+    `featured` ENUM('yes', 'no') DEFAULT 'no',
+    `download_count` INT(11) DEFAULT 0,
+    `sort_order` INT(11) DEFAULT 0,
+    `status` ENUM('active', 'inactive') DEFAULT 'active',
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `slug` (`slug`),
+    KEY `category_id` (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

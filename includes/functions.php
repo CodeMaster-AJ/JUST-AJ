@@ -414,3 +414,146 @@ function searchTools($query) {
     $stmt->execute([$search, $search]);
     return $stmt->fetchAll();
 }
+
+// ================================================
+// PRODUCTS HELPER FUNCTIONS
+// ================================================
+
+/**
+ * Get all active product categories
+ */
+function getProductCategories() {
+    global $pdo;
+    return $pdo->query('SELECT pc.*, COUNT(p.id) as product_count
+                        FROM product_categories pc
+                        LEFT JOIN products p ON pc.id = p.category_id AND p.status = "active"
+                        WHERE pc.status = "active"
+                        GROUP BY pc.id
+                        ORDER BY pc.sort_order')->fetchAll();
+}
+
+/**
+ * Get category by slug
+ */
+function getProductCategory($slug) {
+    global $pdo;
+    $stmt = $pdo->prepare('SELECT * FROM product_categories WHERE slug = ? AND status = "active"');
+    $stmt->execute([$slug]);
+    return $stmt->fetch();
+}
+
+/**
+ * Get products by category
+ */
+function getProductsByCategory($categoryId, $limit = null) {
+    global $pdo;
+    $sql = 'SELECT * FROM products WHERE category_id = ? AND status = "active" ORDER BY sort_order';
+    if ($limit) {
+        $sql .= ' LIMIT ' . (int)$limit;
+    }
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$categoryId]);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Get featured products
+ */
+function getFeaturedProducts($limit = 6) {
+    global $pdo;
+    $stmt = $pdo->prepare('SELECT p.*, pc.name as category_name, pc.slug as category_slug
+                           FROM products p
+                           LEFT JOIN product_categories pc ON p.category_id = pc.id
+                           WHERE p.status = "active" AND p.featured = "yes"
+                           ORDER BY p.sort_order LIMIT ?');
+    $stmt->execute([$limit]);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Get all active products
+ */
+function getAllProducts($limit = null) {
+    global $pdo;
+    $sql = 'SELECT p.*, pc.name as category_name, pc.slug as category_slug
+            FROM products p
+            LEFT JOIN product_categories pc ON p.category_id = pc.id
+            WHERE p.status = "active"
+            ORDER BY pc.sort_order, p.sort_order';
+    if ($limit) {
+        $sql .= ' LIMIT ' . (int)$limit;
+    }
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Get product by slug
+ */
+function getProduct($slug) {
+    global $pdo;
+    $stmt = $pdo->prepare('SELECT p.*, pc.name as category_name, pc.slug as category_slug
+                           FROM products p
+                           LEFT JOIN product_categories pc ON p.category_id = pc.id
+                           WHERE p.slug = ? AND p.status = "active"');
+    $stmt->execute([$slug]);
+    return $stmt->fetch();
+}
+
+/**
+ * Get free products
+ */
+function getFreeProducts($limit = null) {
+    global $pdo;
+    $sql = 'SELECT p.*, pc.name as category_name, pc.slug as category_slug
+            FROM products p
+            LEFT JOIN product_categories pc ON p.category_id = pc.id
+            WHERE p.status = "active" AND p.is_free = "yes"
+            ORDER BY p.sort_order';
+    if ($limit) {
+        $sql .= ' LIMIT ' . (int)$limit;
+    }
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Get paid products
+ */
+function getPaidProducts($limit = null) {
+    global $pdo;
+    $sql = 'SELECT p.*, pc.name as category_name, pc.slug as category_slug
+            FROM products p
+            LEFT JOIN product_categories pc ON p.category_id = pc.id
+            WHERE p.status = "active" AND p.is_free = "no"
+            ORDER BY p.sort_order';
+    if ($limit) {
+        $sql .= ' LIMIT ' . (int)$limit;
+    }
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Increment download count
+ */
+function incrementDownloadCount($productId) {
+    global $pdo;
+    $stmt = $pdo->prepare('UPDATE products SET download_count = download_count + 1 WHERE id = ?');
+    $stmt->execute([$productId]);
+}
+
+/**
+ * Search products
+ */
+function searchProducts($query) {
+    global $pdo;
+    $stmt = $pdo->prepare('SELECT p.*, pc.name as category_name, pc.slug as category_slug
+                           FROM products p
+                           LEFT JOIN product_categories pc ON p.category_id = pc.id
+                           WHERE p.status = "active" AND (p.name LIKE ? OR p.description LIKE ?)
+                           ORDER BY p.name');
+    $search = '%' . $query . '%';
+    $stmt->execute([$search, $search]);
+    return $stmt->fetchAll();
+}

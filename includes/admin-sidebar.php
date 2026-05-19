@@ -77,19 +77,28 @@
                         </li>
                     </ul>
                     <div class="nav-divider"></div>
+                    <p class="nav-label">Products</p>
+                    <ul class="nav-menu">
+                        <li class="nav-item nav-sub">
+                            <a href="<?php echo SITE_URL; ?>/admin/products/products/" class="nav-link <?php echo $currentPage === 'products-manage' ? 'active' : ''; ?>">
+                                <span class="nav-icon">◇</span>
+                                Manage Products
+                            </a>
+                        </li>
+                        <li class="nav-item nav-sub">
+                            <a href="<?php echo SITE_URL; ?>/admin/products/categories/" class="nav-link <?php echo $currentPage === 'product-categories' ? 'active' : ''; ?>">
+                                <span class="nav-icon">◇</span>
+                                Categories
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="nav-divider"></div>
                     <p class="nav-label">Coming Soon</p>
                     <ul class="nav-menu nav-disabled">
                         <li class="nav-item">
                             <span class="nav-link disabled">
                                 <span class="nav-icon">◇</span>
                                 AI Writer
-                                <span class="badge-soon">Soon</span>
-                            </span>
-                        </li>
-                        <li class="nav-item">
-                            <span class="nav-link disabled">
-                                <span class="nav-icon">◇</span>
-                                Products
                                 <span class="badge-soon">Soon</span>
                             </span>
                         </li>
