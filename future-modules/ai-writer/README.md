@@ -9,8 +9,8 @@ This directory is reserved for future AI writing functionality.
 - Usage tracking and limits
 
 ## Database Tables (sql/database.sql)
-- `tools` (with `api_required` flag)
-- `tool_usages`
+- `ai_tools` - AI tool definitions
+- `ai_usages` - Usage tracking
 
 ## API Integration
 - OpenRouter API for AI models
