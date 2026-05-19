@@ -76,15 +76,9 @@ if ($product['is_free'] === 'yes' && isset($_POST['action']) && $_POST['action']
         exit;
     }
     
-    // Create order for free product
+    // Create order for free product (already marked as paid)
     try {
         $orderData = createProductOrder($product, $name, $email);
-        
-        // Immediately mark as paid for free products
-        global $pdo;
-        $orderId = $pdo->lastInsertId();
-        $stmt = $pdo->prepare('UPDATE orders SET status = "paid", payment_id = ? WHERE id = ?');
-        $stmt->execute(['free_' . $orderData['razorpay_order_id'], $orderId]);
         
         // Send download email
         $downloadUrl = BASE_URL . '/products/download.php?order=' . $orderData['razorpay_order_id'];
@@ -242,10 +236,14 @@ $siteName = getSetting('site_name', 'JUST AJ');
                 <div class="checkout-form">
                     <h3>Get Free Product</h3>
                     <p style="color: var(--color-gray-400); margin-bottom: var(--spacing-4);">
-                        Enter your email to receive the download link.
+                        Enter your details to receive the download link.
                     </p>
                     <form id="free-form" method="POST">
                         <input type="hidden" name="action" value="free_download">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" required placeholder="you@example.com">

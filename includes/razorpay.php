@@ -115,6 +115,29 @@ class RazorpayAPI {
 function createProductOrder($product, $customerName, $customerEmail) {
     global $pdo;
     
+    // For free products, skip Razorpay and create order directly
+    if ($product['is_free'] === 'yes' || $product['price'] == 0) {
+        $fakeOrderId = 'free_' . uniqid();
+        
+        $stmt = $pdo->prepare('INSERT INTO orders (order_id, product_id, customer_name, customer_email, amount, razorpay_order_id, status, payment_id) 
+                               VALUES (?, ?, ?, ?, ?, ?, "paid", "free")');
+        $stmt->execute([
+            $fakeOrderId,
+            $product['id'],
+            $customerName,
+            $customerEmail,
+            0,
+            $fakeOrderId
+        ]);
+        
+        return [
+            'razorpay_order_id' => $fakeOrderId,
+            'amount' => 0,
+            'currency' => 'INR'
+        ];
+    }
+    
+    // For paid products, create Razorpay order
     $razorpay = new RazorpayAPI();
     
     $orderData = $razorpay->createOrder(
