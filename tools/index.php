@@ -111,12 +111,14 @@ $siteTagline = getSetting('site_tagline', 'Free tools for everyone');
                     <?php endif; ?>
                     
                     <?php 
-                    $displayTools = $searchQuery ? $allTools : (
-                        $activeCategory ? (
-                            $catData = getToolCategory($activeCategory),
-                            $catData ? getToolsByCategory($catData['id']) : []
-                        ) : $allTools
-                    );
+                    if ($searchQuery) {
+                        $displayTools = $allTools;
+                    } elseif ($activeCategory) {
+                        $catData = getToolCategory($activeCategory);
+                        $displayTools = $catData ? getToolsByCategory($catData['id']) : [];
+                    } else {
+                        $displayTools = $allTools;
+                    }
                     ?>
                     
                     <?php if (!empty($displayTools)): ?>

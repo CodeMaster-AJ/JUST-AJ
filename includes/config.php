@@ -17,6 +17,7 @@ define('DB_PASS', '');
 
 // Site URL
 define('SITE_URL', 'http://localhost/just_aj');
+define('BASE_URL', 'http://localhost/just_aj');
 
 // Site Paths
 define('ROOT_PATH', dirname(__DIR__) . '/');
