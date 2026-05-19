@@ -305,3 +305,112 @@ function getFeaturedBlogPosts($limit = 3) {
     $stmt->execute([$limit]);
     return $stmt->fetchAll();
 }
+
+// ================================================
+// TOOLS HELPER FUNCTIONS
+// ================================================
+
+/**
+ * Get all active tool categories
+ */
+function getToolCategories() {
+    global $pdo;
+    return $pdo->query('SELECT tc.*, COUNT(t.id) as tool_count
+                        FROM tool_categories tc
+                        LEFT JOIN tools t ON tc.id = t.category_id AND t.status = "active"
+                        WHERE tc.status = "active"
+                        GROUP BY tc.id
+                        ORDER BY tc.sort_order')->fetchAll();
+}
+
+/**
+ * Get category by slug
+ */
+function getToolCategory($slug) {
+    global $pdo;
+    $stmt = $pdo->prepare('SELECT * FROM tool_categories WHERE slug = ? AND status = "active"');
+    $stmt->execute([$slug]);
+    return $stmt->fetch();
+}
+
+/**
+ * Get tools by category
+ */
+function getToolsByCategory($categoryId, $limit = null) {
+    global $pdo;
+    $sql = 'SELECT * FROM tools WHERE category_id = ? AND status = "active" ORDER BY sort_order';
+    if ($limit) {
+        $sql .= ' LIMIT ' . (int)$limit;
+    }
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$categoryId]);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Get featured tools
+ */
+function getFeaturedTools($limit = 6) {
+    global $pdo;
+    $stmt = $pdo->prepare('SELECT t.*, tc.name as category_name, tc.slug as category_slug
+                           FROM tools t
+                           LEFT JOIN tool_categories tc ON t.category_id = tc.id
+                           WHERE t.status = "active" AND t.featured = "yes"
+                           ORDER BY t.sort_order LIMIT ?');
+    $stmt->execute([$limit]);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Get all active tools
+ */
+function getAllTools($limit = null) {
+    global $pdo;
+    $sql = 'SELECT t.*, tc.name as category_name, tc.slug as category_slug
+            FROM tools t
+            LEFT JOIN tool_categories tc ON t.category_id = tc.id
+            WHERE t.status = "active"
+            ORDER BY tc.sort_order, t.sort_order';
+    if ($limit) {
+        $sql .= ' LIMIT ' . (int)$limit;
+    }
+    $stmt = $pdo->query($sql);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Get tool by slug
+ */
+function getTool($slug) {
+    global $pdo;
+    $stmt = $pdo->prepare('SELECT t.*, tc.name as category_name, tc.slug as category_slug
+                           FROM tools t
+                           LEFT JOIN tool_categories tc ON t.category_id = tc.id
+                           WHERE t.slug = ? AND t.status = "active"');
+    $stmt->execute([$slug]);
+    return $stmt->fetch();
+}
+
+/**
+ * Increment tool click count
+ */
+function incrementToolClicks($toolId) {
+    global $pdo;
+    $stmt = $pdo->prepare('UPDATE tools SET click_count = click_count + 1 WHERE id = ?');
+    $stmt->execute([$toolId]);
+}
+
+/**
+ * Search tools
+ */
+function searchTools($query) {
+    global $pdo;
+    $stmt = $pdo->prepare('SELECT t.*, tc.name as category_name, tc.slug as category_slug
+                           FROM tools t
+                           LEFT JOIN tool_categories tc ON t.category_id = tc.id
+                           WHERE t.status = "active" AND (t.name LIKE ? OR t.description LIKE ?)
+                           ORDER BY t.name');
+    $search = '%' . $query . '%';
+    $stmt->execute([$search, $search]);
+    return $stmt->fetchAll();
+}

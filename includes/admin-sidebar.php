@@ -61,22 +61,24 @@
                         </li>
                     </ul>
                     <div class="nav-divider"></div>
+                    <p class="nav-label">Tools</p>
+                    <ul class="nav-menu">
+                        <li class="nav-item nav-sub">
+                            <a href="<?php echo SITE_URL; ?>/admin/tools/tools/" class="nav-link <?php echo $currentPage === 'tools-manage' ? 'active' : ''; ?>">
+                                <span class="nav-icon">◇</span>
+                                Manage Tools
+                            </a>
+                        </li>
+                        <li class="nav-item nav-sub">
+                            <a href="<?php echo SITE_URL; ?>/admin/tools/categories/" class="nav-link <?php echo $currentPage === 'tool-categories' ? 'active' : ''; ?>">
+                                <span class="nav-icon">◇</span>
+                                Categories
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="nav-divider"></div>
                     <p class="nav-label">Coming Soon</p>
                     <ul class="nav-menu nav-disabled">
-                        <li class="nav-item">
-                            <span class="nav-link disabled">
-                                <span class="nav-icon">◇</span>
-                                Blog
-                                <span class="badge-soon">Soon</span>
-                            </span>
-                        </li>
-                        <li class="nav-item">
-                            <span class="nav-link disabled">
-                                <span class="nav-icon">◇</span>
-                                Tools
-                                <span class="badge-soon">Soon</span>
-                            </span>
-                        </li>
                         <li class="nav-item">
                             <span class="nav-link disabled">
                                 <span class="nav-icon">◇</span>

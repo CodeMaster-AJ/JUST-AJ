@@ -1,6 +1,6 @@
 -- ================================================
--- JUST AJ Brand Portal - Database Schema v3
--- Complete with Blog Feature & SEO
+-- JUST AJ Brand Portal - Database Schema v4
+-- Complete with Blog Feature & Tools Module
 -- ================================================
 
 -- Create database if not exists
@@ -207,6 +207,68 @@ INSERT INTO `blog_posts` (`title`, `slug`, `content`, `excerpt`, `category_id`, 
 -- ================================================
 INSERT INTO `blog_seo` (`post_id`, `seo_title`, `seo_description`, `seo_keywords`, `index_follow`) VALUES
 (1, 'Web Development Guide for Beginners | JUST AJ', 'Complete guide to learning web development. Learn HTML, CSS, JavaScript and start building websites today.', 'web development, html, css, javascript, tutorial, beginners', 'index,follow');
+
+-- ================================================
+-- TOOL CATEGORIES TABLE
+-- ================================================
+CREATE TABLE `tool_categories` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    `slug` VARCHAR(255) NOT NULL,
+    `icon` VARCHAR(100),
+    `description` TEXT,
+    `sort_order` INT(11) DEFAULT 0,
+    `status` ENUM('active', 'inactive') DEFAULT 'active',
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `slug` (`slug`),
+    KEY `sort_order` (`sort_order`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ================================================
+-- TOOLS TABLE
+-- ================================================
+CREATE TABLE `tools` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `category_id` INT(11) NOT NULL,
+    `name` VARCHAR(255) NOT NULL,
+    `slug` VARCHAR(255) NOT NULL,
+    `description` TEXT,
+    `tool_url` VARCHAR(500) NOT NULL,
+    `icon` VARCHAR(100),
+    `featured` ENUM('yes', 'no') DEFAULT 'no',
+    `sort_order` INT(11) DEFAULT 0,
+    `click_count` INT(11) DEFAULT 0,
+    `status` ENUM('active', 'inactive') DEFAULT 'active',
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `slug` (`slug`),
+    KEY `category_id` (`category_id`),
+    KEY `featured` (`featured`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ================================================
+-- SEED DATA: TOOL CATEGORIES
+-- ================================================
+INSERT INTO `tool_categories` (`name`, `slug`, `icon`, `description`, `sort_order`, `status`) VALUES
+('PDF Tools', 'pdf-tools', 'file-pdf', 'Convert, compress, merge, and split PDF files', 1, 'active'),
+('Image Tools', 'image-tools', 'image', 'Compress, convert, and optimize images', 2, 'active'),
+('SEO/Content', 'seo-content', 'search', 'SEO checkers, word counters, and content tools', 3, 'active'),
+('QR/Barcode', 'qr-barcode', 'qrcode', 'Generate QR codes and barcodes', 4, 'active');
+
+-- ================================================
+-- SEED DATA: SAMPLE TOOLS
+-- ================================================
+INSERT INTO `tools` (`category_id`, `name`, `slug`, `description`, `tool_url`, `icon`, `featured`, `sort_order`, `status`) VALUES
+(1, 'JPG to PDF', 'jpg-to-pdf', 'Convert JPG images to PDF documents', 'https://smallpdf.com/jpg-to-pdf', 'image', 'yes', 1, 'active'),
+(1, 'PDF to JPG', 'pdf-to-jpg', 'Convert PDF pages to JPG images', 'https://smallpdf.com/pdf-to-jpg', 'file', 'yes', 2, 'active'),
+(1, 'Compress PDF', 'compress-pdf', 'Reduce PDF file size without losing quality', 'https://smallpdf.com/compress-pdf', 'compress', 'yes', 3, 'active'),
+(2, 'Remove Background', 'remove-background', 'Remove background from images automatically', 'https://www.remove.bg/', 'eraser', 'yes', 1, 'active'),
+(2, 'Image Compressor', 'image-compressor', 'Compress images without losing quality', 'https://tinypng.com/', 'compress', 'yes', 2, 'active'),
+(3, 'SEO Checker', 'seo-checker', 'Check your website SEO score', 'https://neilpatel.com/seo-analyzer/', 'search', 'yes', 1, 'active'),
+(3, 'Word Counter', 'word-counter', 'Count words, characters, and paragraphs', 'https://wordcounter.net/', 'text', 'yes', 2, 'active'),
+(4, 'QR Code Generator', 'qr-generator', 'Generate QR codes for any URL or text', 'https://www.qrcode-monkey.com/', 'qrcode', 'yes', 1, 'active'),
+(4, 'Barcode Generator', 'barcode-generator', 'Create barcodes in multiple formats', 'https://www.barcodesinc.com/generator/', 'barcode', 'no', 2, 'active');
 
 -- ================================================
 -- SEED DATA: SAMPLE PROJECTS
