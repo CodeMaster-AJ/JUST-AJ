@@ -5,6 +5,7 @@
  */
 
 // Prevent direct access
+define('AJOS_INIT', true);
 if (!defined('AJOS_INIT')) {
     die('Direct access not allowed');
 }

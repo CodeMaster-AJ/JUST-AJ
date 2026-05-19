@@ -3,6 +3,7 @@
  * Tools Page - External Tools Directory
  */
 require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/db.php';
 require_once INCLUDES_PATH . '/functions.php';
 
 $pageTitle = 'Free Tools | ' . getSetting('site_name', 'JUST AJ');
@@ -83,8 +84,8 @@ $siteTagline = getSetting('site_tagline', 'Free tools for everyone');
                                         </svg>
                                     </div>
                                     <h3><?php echo htmlspecialchars($tool['name']); ?></h3>
-                                    <p><?php echo htmlspecialchars(truncate($tool['description'], 80)); ?></p>
-                                    <span class="tool-category"><?php echo htmlspecialchars($tool['category_name']); ?></span>
+                                    <p><?php echo htmlspecialchars(truncate($tool['description'] ?? '', 80)); ?></p>
+                                    <span class="tool-category"><?php echo htmlspecialchars($tool['category_name'] ?? ''); ?></span>
                                     <a href="<?php echo BASE_URL; ?>/tools/redirect.php?slug=<?php echo $tool['slug']; ?>" 
                                        class="tool-link" target="_blank" rel="noopener">
                                         Open Tool
@@ -131,8 +132,8 @@ $siteTagline = getSetting('site_tagline', 'Free tools for everyone');
                                         </svg>
                                     </div>
                                     <h3><?php echo htmlspecialchars($tool['name']); ?></h3>
-                                    <p><?php echo htmlspecialchars(truncate($tool['description'], 80)); ?></p>
-                                    <span class="tool-category"><?php echo htmlspecialchars($tool['category_name']); ?></span>
+                                    <p><?php echo htmlspecialchars(truncate($tool['description'] ?? '', 80)); ?></p>
+                                    <span class="tool-category"><?php echo htmlspecialchars($tool['category_name'] ?? ''); ?></span>
                                     <a href="<?php echo BASE_URL; ?>/tools/redirect.php?slug=<?php echo $tool['slug']; ?>" 
                                        class="tool-link" target="_blank" rel="noopener">
                                         Open Tool
