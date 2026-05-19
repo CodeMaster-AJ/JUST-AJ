@@ -838,6 +838,52 @@ a {
     margin-right: var(--spacing-2);
 }
 
+/* Icon Selector */
+.icon-selector {
+    display: flex;
+    gap: var(--spacing-3);
+    align-items: stretch;
+}
+
+.icon-preview {
+    width: 56px;
+    min-width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-gray-700);
+    border: 1px solid var(--color-gray-600);
+    border-radius: var(--border-radius);
+    color: var(--color-white);
+    font-size: 24px;
+}
+
+.icon-select {
+    flex: 1;
+    padding: var(--spacing-3) var(--spacing-4);
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    color: var(--color-white);
+    background-color: var(--color-gray-800);
+    border: 1px solid var(--color-gray-700);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.icon-select:focus {
+    outline: none;
+    border-color: var(--color-white);
+}
+
+.icon-select option {
+    padding: var(--spacing-2);
+}
+
+.icon-select optgroup {
+    font-weight: 600;
+    color: var(--color-gray-400);
+}
+
 /* Stat Display */
 .stat-display {
     display: flex;

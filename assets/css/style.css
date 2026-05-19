@@ -938,6 +938,7 @@ a:hover {
     border-radius: var(--border-radius);
     margin-bottom: var(--spacing-4);
     color: var(--color-white);
+    font-size: 24px;
 }
 
 .tool-card h3 {

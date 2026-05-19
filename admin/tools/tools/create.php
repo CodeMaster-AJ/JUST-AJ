@@ -155,8 +155,97 @@ include INCLUDES_PATH . '/admin-sidebar.php';
                     
                     <div class="form-group">
                         <label for="icon">Icon</label>
-                        <input type="text" id="icon" name="icon" placeholder="e.g., image, file, search" value="<?php echo htmlspecialchars($_POST['icon'] ?? ''); ?>">
-                        <span class="form-hint">Icon name for display purposes</span>
+                        <div class="icon-selector">
+                            <div class="icon-preview" id="iconPreview">
+                                <i class="fa-solid fa-wrench"></i>
+                            </div>
+                            <select id="icon" name="icon" class="icon-select">
+                                <option value="">Select an icon</option>
+                                <optgroup label="File & Document">
+                                    <option value="fa-file-pdf" <?php echo ($_POST['icon'] ?? '') === 'fa-file-pdf' ? 'selected' : ''; ?>>PDF</option>
+                                    <option value="fa-file-word" <?php echo ($_POST['icon'] ?? '') === 'fa-file-word' ? 'selected' : ''; ?>>Word</option>
+                                    <option value="fa-file-excel" <?php echo ($_POST['icon'] ?? '') === 'fa-file-excel' ? 'selected' : ''; ?>>Excel</option>
+                                    <option value="fa-file-powerpoint" <?php echo ($_POST['icon'] ?? '') === 'fa-file-powerpoint' ? 'selected' : ''; ?>>PowerPoint</option>
+                                    <option value="fa-file-image" <?php echo ($_POST['icon'] ?? '') === 'fa-file-image' ? 'selected' : ''; ?>>Image File</option>
+                                    <option value="fa-file-video" <?php echo ($_POST['icon'] ?? '') === 'fa-file-video' ? 'selected' : ''; ?>>Video File</option>
+                                    <option value="fa-file-audio" <?php echo ($_POST['icon'] ?? '') === 'fa-file-audio' ? 'selected' : ''; ?>>Audio File</option>
+                                    <option value="fa-file-code" <?php echo ($_POST['icon'] ?? '') === 'fa-file-code' ? 'selected' : ''; ?>>Code File</option>
+                                    <option value="fa-file-alt" <?php echo ($_POST['icon'] ?? '') === 'fa-file-alt' ? 'selected' : ''; ?>>Text File</option>
+                                    <option value="fa-file" <?php echo ($_POST['icon'] ?? '') === 'fa-file' ? 'selected' : ''; ?>>File</option>
+                                </optgroup>
+                                <optgroup label="Images & Media">
+                                    <option value="fa-image" <?php echo ($_POST['icon'] ?? '') === 'fa-image' ? 'selected' : ''; ?>>Image</option>
+                                    <option value="fa-photo-video" <?php echo ($_POST['icon'] ?? '') === 'fa-photo-video' ? 'selected' : ''; ?>>Photo/Video</option>
+                                    <option value="fa-portrait" <?php echo ($_POST['icon'] ?? '') === 'fa-portrait' ? 'selected' : ''; ?>>Portrait</option>
+                                    <option value="fa-crop" <?php echo ($_POST['icon'] ?? '') === 'fa-crop' ? 'selected' : ''; ?>>Crop</option>
+                                    <option value="fa-magic" <?php echo ($_POST['icon'] ?? '') === 'fa-magic' ? 'selected' : ''; ?>>Magic</option>
+                                    <option value="fa-paint-brush" <?php echo ($_POST['icon'] ?? '') === 'fa-paint-brush' ? 'selected' : ''; ?>>Paint Brush</option>
+                                    <option value="fa-palette" <?php echo ($_POST['icon'] ?? '') === 'fa-palette' ? 'selected' : ''; ?>>Palette</option>
+                                    <option value="fa-eraser" <?php echo ($_POST['icon'] ?? '') === 'fa-eraser' ? 'selected' : ''; ?>>Eraser</option>
+                                </optgroup>
+                                <optgroup label="PDF Tools">
+                                    <option value="fa-compress" <?php echo ($_POST['icon'] ?? '') === 'fa-compress' ? 'selected' : ''; ?>>Compress</option>
+                                    <option value="fa-expand" <?php echo ($_POST['icon'] ?? '') === 'fa-expand' ? 'selected' : ''; ?>>Expand</option>
+                                    <option value="fa-copy" <?php echo ($_POST['icon'] ?? '') === 'fa-copy' ? 'selected' : ''; ?>>Copy</option>
+                                    <option value="fa-scissors" <?php echo ($_POST['icon'] ?? '') === 'fa-scissors' ? 'selected' : ''; ?>>Cut/Split</option>
+                                    <option value="fa-object-group" <?php echo ($_POST['icon'] ?? '') === 'fa-object-group' ? 'selected' : ''; ?>>Merge</option>
+                                </optgroup>
+                                <optgroup label="SEO & Content">
+                                    <option value="fa-search" <?php echo ($_POST['icon'] ?? '') === 'fa-search' ? 'selected' : ''; ?>>Search</option>
+                                    <option value="fa-globe" <?php echo ($_POST['icon'] ?? '') === 'fa-globe' ? 'selected' : ''; ?>>Globe</option>
+                                    <option value="fa-chart-line" <?php echo ($_POST['icon'] ?? '') === 'fa-chart-line' ? 'selected' : ''; ?>>Analytics</option>
+                                    <option value="fa-chart-bar" <?php echo ($_POST['icon'] ?? '') === 'fa-chart-bar' ? 'selected' : ''; ?>>Chart</option>
+                                    <option value="fa-key" <?php echo ($_POST['icon'] ?? '') === 'fa-key' ? 'selected' : ''; ?>>Key</option>
+                                    <option value="fa-shield-alt" <?php echo ($_POST['icon'] ?? '') === 'fa-shield-alt' ? 'selected' : ''; ?>>Shield</option>
+                                    <option value="fa-spell-check" <?php echo ($_POST['icon'] ?? '') === 'fa-spell-check' ? 'selected' : ''; ?>>Spell Check</option>
+                                    <option value="fa-language" <?php echo ($_POST['icon'] ?? '') === 'fa-language' ? 'selected' : ''; ?>>Language</option>
+                                    <option value="fa-text-width" <?php echo ($_POST['icon'] ?? '') === 'fa-text-width' ? 'selected' : ''; ?>>Text Width</option>
+                                </optgroup>
+                                <optgroup label="QR & Barcode">
+                                    <option value="fa-qrcode" <?php echo ($_POST['icon'] ?? '') === 'fa-qrcode' ? 'selected' : ''; ?>>QR Code</option>
+                                    <option value="fa-barcode" <?php echo ($_POST['icon'] ?? '') === 'fa-barcode' ? 'selected' : ''; ?>>Barcode</option>
+                                </optgroup>
+                                <optgroup label="Tools & Utility">
+                                    <option value="fa-tools" <?php echo ($_POST['icon'] ?? '') === 'fa-tools' ? 'selected' : ''; ?>>Tools</option>
+                                    <option value="fa-wrench" <?php echo ($_POST['icon'] ?? '') === 'fa-wrench' ? 'selected' : ''; ?>>Wrench</option>
+                                    <option value="fa-screwdriver-wrench" <?php echo ($_POST['icon'] ?? '') === 'fa-screwdriver-wrench' ? 'selected' : ''; ?>>Wrench/Screwdriver</option>
+                                    <option value="fa-hammer" <?php echo ($_POST['icon'] ?? '') === 'fa-hammer' ? 'selected' : ''; ?>>Hammer</option>
+                                    <option value="fa-gear" <?php echo ($_POST['icon'] ?? '') === 'fa-gear' ? 'selected' : ''; ?>>Gear</option>
+                                    <option value="fa-sliders" <?php echo ($_POST['icon'] ?? '') === 'fa-sliders' ? 'selected' : ''; ?>>Sliders</option>
+                                    <option value="fa-sliders-h" <?php echo ($_POST['icon'] ?? '') === 'fa-sliders-h' ? 'selected' : ''; ?>>Sliders H</option>
+                                </optgroup>
+                                <optgroup label="Download & Upload">
+                                    <option value="fa-download" <?php echo ($_POST['icon'] ?? '') === 'fa-download' ? 'selected' : ''; ?>>Download</option>
+                                    <option value="fa-upload" <?php echo ($_POST['icon'] ?? '') === 'fa-upload' ? 'selected' : ''; ?>>Upload</option>
+                                    <option value="fa-cloud-arrow-down" <?php echo ($_POST['icon'] ?? '') === 'fa-cloud-arrow-down' ? 'selected' : ''; ?>>Cloud Download</option>
+                                    <option value="fa-cloud-arrow-up" <?php echo ($_POST['icon'] ?? '') === 'fa-cloud-arrow-up' ? 'selected' : ''; ?>>Cloud Upload</option>
+                                </optgroup>
+                                <optgroup label="Converter">
+                                    <option value="fa-right-left" <?php echo ($_POST['icon'] ?? '') === 'fa-right-left' ? 'selected' : ''; ?>>Exchange</option>
+                                    <option value="fa-arrows-rotate" <?php echo ($_POST['icon'] ?? '') === 'fa-arrows-rotate' ? 'selected' : ''; ?>>Rotate</option>
+                                    <option value="fa-repeat" <?php echo ($_POST['icon'] ?? '') === 'fa-repeat' ? 'selected' : ''; ?>>Repeat</option>
+                                </optgroup>
+                                <optgroup label="Office & Productivity">
+                                    <option value="fa-calculator" <?php echo ($_POST['icon'] ?? '') === 'fa-calculator' ? 'selected' : ''; ?>>Calculator</option>
+                                    <option value="fa-ruler" <?php echo ($_POST['icon'] ?? '') === 'fa-ruler' ? 'selected' : ''; ?>>Ruler</option>
+                                    <option value="fa-table" <?php echo ($_POST['icon'] ?? '') === 'fa-table' ? 'selected' : ''; ?>>Table</option>
+                                    <option value="fa-clipboard-list" <?php echo ($_POST['icon'] ?? '') === 'fa-clipboard-list' ? 'selected' : ''; ?>>Clipboard</option>
+                                    <option value="fa-note-sticky" <?php echo ($_POST['icon'] ?? '') === 'fa-note-sticky' ? 'selected' : ''; ?>>Sticky Note</option>
+                                    <option value="fa-list-check" <?php echo ($_POST['icon'] ?? '') === 'fa-list-check' ? 'selected' : ''; ?>>Checklist</option>
+                                </optgroup>
+                                <optgroup label="General">
+                                    <option value="fa-star" <?php echo ($_POST['icon'] ?? '') === 'fa-star' ? 'selected' : ''; ?>>Star</option>
+                                    <option value="fa-heart" <?php echo ($_POST['icon'] ?? '') === 'fa-heart' ? 'selected' : ''; ?>>Heart</option>
+                                    <option value="fa-bookmark" <?php echo ($_POST['icon'] ?? '') === 'fa-bookmark' ? 'selected' : ''; ?>>Bookmark</option>
+                                    <option value="fa-link" <?php echo ($_POST['icon'] ?? '') === 'fa-link' ? 'selected' : ''; ?>>Link</option>
+                                    <option value="fa-external-link" <?php echo ($_POST['icon'] ?? '') === 'fa-external-link' ? 'selected' : ''; ?>>External Link</option>
+                                    <option value="fa-share" <?php echo ($_POST['icon'] ?? '') === 'fa-share' ? 'selected' : ''; ?>>Share</option>
+                                    <option value="fa-print" <?php echo ($_POST['icon'] ?? '') === 'fa-print' ? 'selected' : ''; ?>>Print</option>
+                                    <option value="fa-save" <?php echo ($_POST['icon'] ?? '') === 'fa-save' ? 'selected' : ''; ?>>Save</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <span class="form-hint">Choose an icon from FontAwesome</span>
                     </div>
                 </div>
             </div>
@@ -206,3 +295,20 @@ include INCLUDES_PATH . '/admin-sidebar.php';
 </div>
 
 <?php include INCLUDES_PATH . '/admin-footer.php'; ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const iconSelect = document.getElementById('icon');
+    const iconPreview = document.getElementById('iconPreview');
+    
+    if (iconSelect && iconPreview) {
+        iconSelect.addEventListener('change', function() {
+            if (this.value) {
+                iconPreview.innerHTML = '<i class="fa-solid ' + this.value + '"></i>';
+            } else {
+                iconPreview.innerHTML = '<i class="fa-solid fa-wrench"></i>';
+            }
+        });
+    }
+});
+</script>
