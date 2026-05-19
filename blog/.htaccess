@@ -1,0 +1,14 @@
+# Blog URL Rewriting
+RewriteEngine On
+RewriteBase /just_aj/blog/
+
+# Skip existing files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite to post.php
+RewriteRule ^(.+)$ post.php?slug=$1 [L,QSA]
+
+# Handle root blog URL
+RewriteCond %{REQUEST_URI} ^/just_aj/blog/?$
+RewriteRule ^$ index.php [L]

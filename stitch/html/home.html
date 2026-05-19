@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Geist:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            -webkit-font-smoothing: antialiased;
+        }
+        .architectural-grid {
+            background-image: linear-gradient(#333333 1px, transparent 1px), linear-gradient(90deg, #333333 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.05;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#5d5f5f",
+                        "on-surface": "#e2e2e2",
+                        "surface-variant": "#353535",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-tint": "#c6c6c7",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-secondary-container": "#b8b8b8",
+                        "on-primary-container": "#636565",
+                        "secondary-container": "#484949",
+                        "background": "#131313",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface-container-low": "#1b1b1b",
+                        "on-tertiary-container": "#636565",
+                        "primary-container": "#e2e2e2",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary": "#c7c6c6",
+                        "on-surface-variant": "#c4c7c8",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#1a1c1c",
+                        "tertiary": "#ffffff",
+                        "on-background": "#e2e2e2",
+                        "error-container": "#93000a",
+                        "inverse-on-surface": "#303030",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container-highest": "#353535",
+                        "primary-fixed": "#e2e2e2",
+                        "on-tertiary": "#2f3131",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#2f3131",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#1f1f1f",
+                        "outline-variant": "#444748",
+                        "surface-bright": "#393939",
+                        "on-primary": "#2f3131",
+                        "primary": "#ffffff",
+                        "inverse-surface": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface": "#131313",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#454747",
+                        "secondary-fixed": "#e3e2e2",
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary-container": "#e2e2e2",
+                        "outline": "#8e9192"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "20px",
+                        "margin-desktop": "64px",
+                        "container-max": "1200px",
+                        "unit": "4px",
+                        "stack-lg": "80px",
+                        "stack-md": "40px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-xl-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Geist"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background border-b border-outline-variant">
+<nav class="flex justify-between items-center w-full px-6 md:px-margin-desktop py-6 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-primary">
+                JUST AJ
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary border-b border-primary pb-1 font-label-sm text-label-sm transition-opacity opacity-70" href="#">Home</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-200" href="#">Projects</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-200" href="#">Services</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-200" href="#">Contact</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex flex-col justify-center px-6 md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="absolute inset-0 architectural-grid -z-10"></div>
+<div class="max-w-4xl space-y-stack-md">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary tracking-tighter">
+                    Building tools, content, and systems for creators, students, and founders.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    JUST AJ is my personal digital space where I build projects, share ideas, and create useful systems.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<a class="inline-flex items-center justify-center px-8 py-4 bg-primary text-background font-bold text-body-md uppercase tracking-widest transition-opacity hover:opacity-80" href="#projects">
+                        View Projects
+                    </a>
+<a class="inline-flex items-center justify-center px-8 py-4 border border-primary text-primary font-bold text-body-md uppercase tracking-widest transition-all hover:bg-primary hover:text-background" href="#contact">
+                        Work With Me
+                    </a>
+</div>
+</div>
+</section>
+<!-- Intro Section: Philosophy -->
+<section class="py-stack-lg px-6 md:px-margin-desktop max-w-container-max mx-auto">
+<div class="border-t border-outline-variant pt-stack-md flex flex-col md:flex-row gap-stack-md justify-between items-start">
+<div class="md:w-1/3">
+<h2 class="font-headline-md text-headline-md text-primary uppercase tracking-tighter">A builder's philosophy.</h2>
+</div>
+<div class="md:w-2/3">
+<p class="font-headline-md text-headline-md text-on-surface-variant leading-relaxed">
+                        Precision is non-negotiable. I believe in the raw impact of clear boundaries, minimalist systems, and high-fidelity output. Whether it’s code or content, the goal is always "signal over noise."
+                    </p>
+</div>
+</div>
+</section>
+<!-- Projects Bento Preview -->
+<section class="py-stack-lg px-6 md:px-margin-desktop max-w-container-max mx-auto" id="projects">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-lowest border border-outline-variant aspect-[16/9] flex items-end p-8">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 grayscale group-hover:scale-105 transition-transform duration-700" data-alt="A high-contrast black and white photograph of a sleek, modern architectural building featuring sharp angles and reflective glass windows. The lighting is dramatic, highlighting the structural precision and minimalist design. The overall mood is cold, professional, and sophisticated, aligning with a builder's ethos." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1JcdZlLMzMtqoTb4d6YugV-UTz8pUKfAdrXmz3uCce1prNLguRfJRBQncbw0KK9eoK8BGud2TW0lxnZ5BNx7gTuBkZvrhGdUK_-cD8oVjs3xB6K572NmJuGZFnmq3KO9NU0vvPODyXOO1kEDpSE8AQet-XcMi9Xydkr_JhQW6OVw7HjC61NEgB1adgZ-Qs2Uxf10RRc3PcMtufWJi_oR-cyV3Tf1pI6-IJZvyJyB8I-Qb1HvBYFVgschjL7OBvhD7rBIJImE9Whg"/>
+<div class="relative z-10 w-full">
+<p class="font-label-sm text-label-sm text-primary mb-2">01 / WEB SYSTEM</p>
+<h3 class="font-headline-xl text-headline-xl text-primary mb-4">Neural Architecture</h3>
+<a class="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary border-b border-primary pb-1 opacity-0 group-hover:opacity-100 transition-opacity" href="#">EXPLORE CASE STUDY</a>
+</div>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container-lowest border border-outline-variant aspect-square md:aspect-auto flex items-end p-8">
+<img class="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:scale-105 transition-transform duration-700" data-alt="A macro close-up of a high-tech computer motherboard with glowing white LED traces. The scene is rendered in deep blacks and grays with stark white highlights. The image conveys a sense of complex technological infrastructure and digital precision, matching the Refined Brutalism aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL3XnX8MfuRyts3JtYFlWGsiI1QvN8II9pdPcX4KfC8_KBUWz_Zk1fK5P_LJK9mKTzpoWrBsGaZZ7Hn_qDkypkWlUvduMT13Cq9aFMMPZ60Rdv1MIez5mbysmFe-4Xw10UT2oWh0yMahIaJVtv0mCtfXDwzPskZwq1cC0EtyG_2nkTwP_-9AjPb13xaS5WlLApvx2S7bovCS_0WWFYHl2M8kltNKwwtOJnALzatYuK3RrrzVoR_84iioOPWVPVJiBrUTEqCAMCiVM"/>
+<div class="relative z-10">
+<p class="font-label-sm text-label-sm text-primary mb-2">02 / AI TOOL</p>
+<h3 class="font-headline-md text-headline-md text-primary">Context Engine</h3>
+</div>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container-lowest border border-outline-variant aspect-square md:aspect-auto flex items-end p-8">
+<img class="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:scale-105 transition-transform duration-700" data-alt="Abstract minimalist art showing bold, thick black brushstrokes against a stark white background. The texture is raw and expressive yet controlled within a clean, square composition. It represents the intersection of creative content and systematic execution in a founder-led environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK2nPITRmAYkMUCh7RzgwyXXRY3l0yfgqNE110CL02Q8EIfOVFrzQNdvr_fbAcGaGNO_9I7jentv8odsMpEsptGwuYGUn0VWc1AkezIA8Gqj20gREG1HvM9sIp3c9t_ttuUOaZEjmv89razfgE-aDbWcQNExmQveDoBVhaj8MAEj9XsNsRgY0VUHlkb_wkPj1NA-CoFBwUxvFoP3bLPet8XBGc0FzlZ_P2MLI09pF_4oM8vrzuvDgPyEhB4_sCRgRv0yBFLusGTVc"/>
+<div class="relative z-10">
+<p class="font-label-sm text-label-sm text-primary mb-2">03 / CONTENT</p>
+<h3 class="font-headline-md text-headline-md text-primary">Builder's Journal</h3>
+</div>
+</div>
+<div class="md:col-span-8 bg-surface-container-low border border-outline-variant p-12 flex flex-col justify-center">
+<h3 class="font-headline-xl text-headline-xl text-primary mb-6">More Work</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md">I maintain a repository of tools and experimental frameworks designed for modern creators.</p>
+<a class="self-start px-8 py-4 border border-primary text-primary font-bold text-label-sm uppercase tracking-widest hover:bg-primary hover:text-background transition-all" href="#">Archive</a>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-stack-lg px-6 md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-stack-md">
+<h2 class="font-headline-xl text-headline-xl text-primary tracking-tighter">Services</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant md:max-w-xs uppercase tracking-widest">Capabilities specialized for the digital founder.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Service 1 -->
+<div class="p-8 border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">code</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Web Dev</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Building high-performance, minimalist web applications with a focus on clean code and architectural integrity.</p>
+<ul class="space-y-2 border-t border-outline-variant pt-6">
+<li class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="w-1 h-1 bg-primary rounded-full"></span> CUSTOM SAAS PLATFORMS
+                        </li>
+<li class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="w-1 h-1 bg-primary rounded-full"></span> PERFORMANCE OPTIMIZATION
+                        </li>
+</ul>
+</div>
+<!-- Service 2 -->
+<div class="p-8 border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">psychology</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">AI Tools</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Integrating advanced LLM systems and custom AI agents into your existing workflows to multiply efficiency.</p>
+<ul class="space-y-2 border-t border-outline-variant pt-6">
+<li class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="w-1 h-1 bg-primary rounded-full"></span> LLM IMPLEMENTATION
+                        </li>
+<li class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="w-1 h-1 bg-primary rounded-full"></span> WORKFLOW AUTOMATION
+                        </li>
+</ul>
+</div>
+<!-- Service 3 -->
+<div class="p-8 border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">token</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Personal Brand</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Crafting a visual and strategic identity that establishes authority and clarity for founders and creators.</p>
+<ul class="space-y-2 border-t border-outline-variant pt-6">
+<li class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="w-1 h-1 bg-primary rounded-full"></span> VISUAL IDENTITY
+                        </li>
+<li class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2">
+<span class="w-1 h-1 bg-primary rounded-full"></span> STRATEGIC POSITIONING
+                        </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-stack-lg px-6 md:px-margin-desktop max-w-container-max mx-auto text-center border-t border-outline-variant" id="contact">
+<div class="py-stack-lg">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary tracking-tighter mb-stack-sm">
+                    Let's build something together.
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-stack-md">
+                    Currently accepting projects that challenge the status quo. If you value precision and builder ethos, we should talk.
+                </p>
+<div class="flex justify-center">
+<a class="px-12 py-6 bg-primary text-background font-bold text-headline-md uppercase tracking-widest transition-opacity hover:opacity-80" href="mailto:aj@example.com">
+                        Initiate Contact
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-margin-desktop py-10 w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black text-primary mb-6 md:mb-0">
+                JUST AJ
+            </div>
+<div class="flex flex-col items-center md:items-end gap-2">
+<div class="flex gap-6 mb-4">
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">
+                    © 2024 JUST AJ. All rights reserved.
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll reveal interaction
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-10');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body></html>

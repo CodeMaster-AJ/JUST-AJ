@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JUST AJ | Admin Control</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Geist:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e2e2e2;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0e0e0e;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333333;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#5d5f5f",
+                        "on-surface": "#e2e2e2",
+                        "surface-variant": "#353535",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-tint": "#c6c6c7",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-secondary-container": "#b8b8b8",
+                        "on-primary-container": "#636565",
+                        "secondary-container": "#484949",
+                        "background": "#131313",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface-container-low": "#1b1b1b",
+                        "on-tertiary-container": "#636565",
+                        "primary-container": "#e2e2e2",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary": "#c7c6c6",
+                        "on-surface-variant": "#c4c7c8",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#1a1c1c",
+                        "tertiary": "#ffffff",
+                        "on-background": "#e2e2e2",
+                        "error-container": "#93000a",
+                        "inverse-on-surface": "#303030",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container-highest": "#353535",
+                        "primary-fixed": "#e2e2e2",
+                        "on-tertiary": "#2f3131",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#2f3131",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#1f1f1f",
+                        "outline-variant": "#444748",
+                        "surface-bright": "#393939",
+                        "on-primary": "#2f3131",
+                        "primary": "#ffffff",
+                        "inverse-surface": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface": "#131313",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#454747",
+                        "secondary-fixed": "#e3e2e2",
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary-container": "#e2e2e2",
+                        "outline": "#8e9192"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "20px",
+                        "margin-desktop": "64px",
+                        "container-max": "1200px",
+                        "unit": "4px",
+                        "stack-lg": "80px",
+                        "stack-md": "40px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Geist"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body-md text-on-surface bg-background overflow-hidden h-screen flex">
+<!-- SideNavBar Component -->
+<aside class="flex flex-col h-full border-r border-outline-variant py-8 bg-surface-container-lowest w-64 shrink-0">
+<div class="px-8 mb-12">
+<h1 class="font-headline-md text-headline-md font-black text-primary tracking-tighter">JUST AJ</h1>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mt-1 opacity-60">Admin Control</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center px-8 py-4 bg-surface-container-highest text-primary font-bold border-l-2 border-primary scale-[0.99] transition-transform" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center px-8 py-4 text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="work">work</span>
+<span class="font-label-sm">Projects</span>
+</a>
+<a class="flex items-center px-8 py-4 text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="layers">layers</span>
+<span class="font-label-sm">Services</span>
+</a>
+<a class="flex items-center px-8 py-4 text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="contact_mail">contact_mail</span>
+<span class="font-label-sm">Leads</span>
+</a>
+</nav>
+<div class="pt-8 border-t border-outline-variant space-y-1">
+<a class="flex items-center px-8 py-4 text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="settings">settings</span>
+<span class="font-label-sm">Settings</span>
+</a>
+<a class="flex items-center px-8 py-4 text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="logout">logout</span>
+<span class="font-label-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto custom-scrollbar px-margin-desktop py-stack-md max-w-container-max mx-auto w-full">
+<!-- Header -->
+<header class="flex justify-between items-end mb-stack-md">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-primary">Overview</h2>
+<p class="font-body-md text-on-surface-variant mt-2 max-w-md">Detailed performance metrics and administrative actions for the architectural ecosystem.</p>
+</div>
+<div class="hidden md:block">
+<button class="bg-primary text-background px-8 py-3 font-bold font-label-sm hover:opacity-80 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    NEW PROJECT
+                </button>
+</div>
+</header>
+<!-- Stats Cards Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-stack-lg">
+<div class="bg-surface-container-low border border-outline-variant p-stack-md group hover:border-primary transition-colors">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Total Projects</p>
+<h3 class="font-display-lg text-display-lg text-primary leading-none">12</h3>
+<div class="mt-4 flex items-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="trending_up">trending_up</span>
+<span class="font-label-sm">2 pending completion</span>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-stack-md group hover:border-primary transition-colors">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Total Services</p>
+<h3 class="font-display-lg text-display-lg text-primary leading-none">4</h3>
+<div class="mt-4 flex items-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="category">category</span>
+<span class="font-label-sm">Architecture, Interior, Landscape, Consulting</span>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant p-stack-md group hover:border-primary transition-colors">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Total Leads</p>
+<h3 class="font-display-lg text-display-lg text-primary leading-none">28</h3>
+<div class="mt-4 flex items-center text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="mail">mail</span>
+<span class="font-label-sm">8 unread inquiries</span>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid -->
+<section class="mb-stack-lg">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-gutter">Quick Actions</h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<button class="flex flex-col items-start justify-between p-stack-md border border-outline-variant bg-background hover:bg-primary hover:text-background transition-all group h-40">
+<span class="material-symbols-outlined text-3xl" data-icon="add_circle">add_circle</span>
+<span class="font-headline-md">Add Project</span>
+</button>
+<button class="flex flex-col items-start justify-between p-stack-md border border-outline-variant bg-background hover:bg-primary hover:text-background transition-all group h-40">
+<span class="material-symbols-outlined text-3xl" data-icon="design_services">design_services</span>
+<span class="font-headline-md">Add Service</span>
+</button>
+<button class="flex flex-col items-start justify-between p-stack-md border border-outline-variant bg-background hover:bg-primary hover:text-background transition-all group h-40">
+<span class="material-symbols-outlined text-3xl" data-icon="list_alt">list_alt</span>
+<span class="font-headline-md">View Leads</span>
+</button>
+</div>
+</section>
+<!-- Recent Leads Table -->
+<section class="bg-surface-container-lowest border border-outline-variant overflow-hidden">
+<div class="px-gutter py-stack-sm border-b border-outline-variant flex justify-between items-center">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Recent Leads</h4>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">SEE ALL</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-gutter py-4 font-label-sm text-on-surface-variant uppercase tracking-widest">Name</th>
+<th class="px-gutter py-4 font-label-sm text-on-surface-variant uppercase tracking-widest">Subject</th>
+<th class="px-gutter py-4 font-label-sm text-on-surface-variant uppercase tracking-widest">Date</th>
+<th class="px-gutter py-4 font-label-sm text-on-surface-variant uppercase tracking-widest text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-gutter py-6 font-body-md text-primary">Julianne V.</td>
+<td class="px-gutter py-6 font-body-md text-on-surface-variant">Residential Redesign - Modern Minimalist</td>
+<td class="px-gutter py-6 font-label-sm text-on-surface-variant">Oct 24, 2023</td>
+<td class="px-gutter py-6 text-right">
+<button class="text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-gutter py-6 font-body-md text-primary">Arthur Thorne</td>
+<td class="px-gutter py-6 font-body-md text-on-surface-variant">Commercial Office Space Loft</td>
+<td class="px-gutter py-6 font-label-sm text-on-surface-variant">Oct 22, 2023</td>
+<td class="px-gutter py-6 text-right">
+<button class="text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-gutter py-6 font-body-md text-primary">Sarah Jenkins</td>
+<td class="px-gutter py-6 font-body-md text-on-surface-variant">Landscape Architecture Inquiry</td>
+<td class="px-gutter py-6 font-label-sm text-on-surface-variant">Oct 21, 2023</td>
+<td class="px-gutter py-6 text-right">
+<button class="text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-gutter py-6 font-body-md text-primary">Marcus Wright</td>
+<td class="px-gutter py-6 font-body-md text-on-surface-variant">Brutalist Retreat Concept</td>
+<td class="px-gutter py-6 font-label-sm text-on-surface-variant">Oct 19, 2023</td>
+<td class="px-gutter py-6 text-right">
+<button class="text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Footer -->
+<footer class="mt-stack-lg pt-stack-md border-t border-outline-variant flex flex-col md:flex-row justify-between items-center opacity-60">
+<p class="font-label-sm">© 2024 JUST AJ. All rights reserved.</p>
+<div class="flex gap-gutter mt-4 md:mt-0">
+<a class="font-label-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</footer>
+</main>
+<script>
+        // Micro-interaction for the stats cards
+        document.querySelectorAll('.bg-surface-container-low').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'transform 0.3s cubic-bezier(0.2, 0, 0, 1), border-color 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+
+        // Tab selection logic
+        const navLinks = document.querySelectorAll('aside nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // e.preventDefault(); // Uncomment if preventing navigation
+                navLinks.forEach(l => {
+                    l.classList.remove('bg-surface-container-highest', 'text-primary', 'font-bold', 'border-l-2', 'border-primary');
+                    l.classList.add('text-on-surface-variant');
+                });
+                link.classList.add('bg-surface-container-highest', 'text-primary', 'font-bold', 'border-l-2', 'border-primary');
+                link.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

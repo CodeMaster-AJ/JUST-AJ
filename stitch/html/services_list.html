@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services | JUST AJ Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Geist:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #131313;
+            color: #e2e2e2;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#5d5f5f",
+                        "on-surface": "#e2e2e2",
+                        "surface-variant": "#353535",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-tint": "#c6c6c7",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-secondary-container": "#b8b8b8",
+                        "on-primary-container": "#636565",
+                        "secondary-container": "#484949",
+                        "background": "#131313",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface-container-low": "#1b1b1b",
+                        "on-tertiary-container": "#636565",
+                        "primary-container": "#e2e2e2",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary": "#c7c6c6",
+                        "on-surface-variant": "#c4c7c8",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#1a1c1c",
+                        "tertiary": "#ffffff",
+                        "on-background": "#e2e2e2",
+                        "error-container": "#93000a",
+                        "inverse-on-surface": "#303030",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container-highest": "#353535",
+                        "primary-fixed": "#e2e2e2",
+                        "on-tertiary": "#2f3131",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#2f3131",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#1f1f1f",
+                        "outline-variant": "#444748",
+                        "surface-bright": "#393939",
+                        "on-primary": "#2f3131",
+                        "primary": "#ffffff",
+                        "inverse-surface": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface": "#131313",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#454747",
+                        "secondary-fixed": "#e3e2e2",
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary-container": "#e2e2e2",
+                        "outline": "#8e9192"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0rem",
+                        "lg": "0rem",
+                        "xl": "0rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "20px",
+                        "margin-desktop": "64px",
+                        "container-max": "1200px",
+                        "unit": "4px",
+                        "stack-lg": "80px",
+                        "stack-md": "40px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Geist"],
+                        "label-sm": ["Geist"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Geist"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="flex min-h-screen bg-background">
+<!-- SideNavBar Component -->
+<aside class="flex flex-col h-full border-r border-outline-variant py-8 bg-surface-container-lowest dark:bg-surface-container-lowest fixed left-0 top-0 w-64 z-50">
+<div class="px-8 mb-12">
+<h1 class="font-headline-md text-headline-md font-black text-primary">JUST AJ</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mt-1">Admin Control</p>
+</div>
+<nav class="flex-grow flex flex-col space-y-1">
+<a class="flex items-center px-8 py-4 text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center px-8 py-4 text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="work">work</span>
+<span class="font-label-sm text-label-sm">Projects</span>
+</a>
+<a class="flex items-center px-8 py-4 bg-surface-container-highest text-primary font-bold border-l-2 border-primary scale-[0.99] transition-transform group" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="layers">layers</span>
+<span class="font-label-sm text-label-sm">Services</span>
+</a>
+<a class="flex items-center px-8 py-4 text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="contact_mail">contact_mail</span>
+<span class="font-label-sm text-label-sm">Leads</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col space-y-1 pt-8 border-t border-outline-variant">
+<a class="flex items-center px-8 py-4 text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+<a class="flex items-center px-8 py-4 text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined mr-4" data-icon="logout">logout</span>
+<span class="font-label-sm text-label-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Content Area -->
+<main class="flex-grow ml-64 p-margin-desktop bg-background min-h-screen">
+<header class="flex justify-between items-end mb-stack-lg">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-primary tracking-tight">Services</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-xl">Configure and manage your service offerings, from architectural design to digital automation systems.</p>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 font-body-md font-bold uppercase tracking-widest hover:opacity-80 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add New Service
+            </button>
+</header>
+<!-- Stats Grid (Bento Style) -->
+<div class="grid grid-cols-12 gap-gutter mb-stack-md">
+<div class="col-span-12 md:col-span-4 p-8 bg-surface-container-low border border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Active Services</span>
+<div class="mt-4 text-4xl font-headline-md text-primary">08</div>
+</div>
+<div class="col-span-12 md:col-span-4 p-8 bg-surface-container-low border border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Drafts</span>
+<div class="mt-4 text-4xl font-headline-md text-primary">02</div>
+</div>
+<div class="col-span-12 md:col-span-4 p-8 bg-surface-container-low border border-outline-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Conversion Rate</span>
+<div class="mt-4 text-4xl font-headline-md text-primary">12.4%</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="flex items-center gap-8 mb-8 pb-4 border-b border-outline-variant">
+<button class="font-label-sm text-label-sm text-primary border-b-2 border-primary pb-4">All Services</button>
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors pb-4">Published</button>
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors pb-4">Drafts</button>
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors pb-4">Archived</button>
+<div class="ml-auto flex items-center border border-outline-variant px-4 py-2 bg-surface-container-lowest">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none text-on-surface font-label-sm focus:ring-0 w-48 placeholder:text-outline" placeholder="Search services..." type="text"/>
+</div>
+</div>
+<!-- Services Table -->
+<div class="w-full overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-8 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Service Title</th>
+<th class="px-8 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-8 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Date Modified</th>
+<th class="px-8 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody>
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="code">code</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg text-primary">Website Development</h4>
+<p class="font-label-sm text-[10px] text-on-surface-variant uppercase mt-1">Digital Design</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-primary text-on-primary font-label-sm text-[10px] uppercase">
+<span class="w-1.5 h-1.5 bg-on-primary rounded-full"></span>
+                                Published
+                            </span>
+</td>
+<td class="px-8 py-6 font-body-md text-on-surface-variant">
+                            Oct 24, 2023
+                        </td>
+<td class="px-8 py-6 text-right">
+<div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg text-primary">AI Tools &amp; Automation</h4>
+<p class="font-label-sm text-[10px] text-on-surface-variant uppercase mt-1">Efficiency Systems</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-primary text-on-primary font-label-sm text-[10px] uppercase">
+<span class="w-1.5 h-1.5 bg-on-primary rounded-full"></span>
+                                Published
+                            </span>
+</td>
+<td class="px-8 py-6 font-body-md text-on-surface-variant">
+                            Nov 02, 2023
+                        </td>
+<td class="px-8 py-6 text-right">
+<div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg text-primary">Architectural Visualisation</h4>
+<p class="font-label-sm text-[10px] text-on-surface-variant uppercase mt-1">3D rendering</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 border border-outline text-on-surface-variant font-label-sm text-[10px] uppercase">
+<span class="w-1.5 h-1.5 bg-outline rounded-full"></span>
+                                Draft
+                            </span>
+</td>
+<td class="px-8 py-6 font-body-md text-on-surface-variant">
+                            Dec 12, 2023
+                        </td>
+<td class="px-8 py-6 text-right">
+<div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="palette">palette</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg text-primary">Brand Identity Design</h4>
+<p class="font-label-sm text-[10px] text-on-surface-variant uppercase mt-1">Creative Direction</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-primary text-on-primary font-label-sm text-[10px] uppercase">
+<span class="w-1.5 h-1.5 bg-on-primary rounded-full"></span>
+                                Published
+                            </span>
+</td>
+<td class="px-8 py-6 font-body-md text-on-surface-variant">
+                            Jan 05, 2024
+                        </td>
+<td class="px-8 py-6 text-right">
+<div class="flex justify-end gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="text-on-surface-variant hover:text-error">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="mt-8 flex justify-between items-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Showing 4 of 10 services</p>
+<div class="flex gap-2">
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-surface-container-low disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 border border-primary bg-primary text-on-primary flex items-center justify-center font-label-sm">1</button>
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-surface-container-low font-label-sm">2</button>
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-surface-container-low font-label-sm">3</button>
+<button class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<script>
+        // Simple interactive effects for a high-end feel
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transform = 'translateX(8px)';
+                row.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.transform = 'translateX(0px)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,208 @@
+# JUST AJ Brand Portal - Project Status
+
+## Current State: COMPLETE (v2) ✅
+
+Date: May 19, 2026
+
+---
+
+## Project Overview
+A personal brand platform built with native PHP + MySQL for XAMPP.
+
+**Internal System Name:** AJ OS
+
+---
+
+## Login Credentials
+
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | aj@justaj.local | admin123 |
+
+---
+
+## URLs
+
+- **Website:** http://localhost/just_aj/
+- **Blog:** http://localhost/just_aj/blog/
+- **Admin Panel:** http://localhost/just_aj/admin/login.php
+
+---
+
+## Database
+
+- **Database Name:** just_aj
+- **Host:** localhost
+- **User:** root
+- **Password:** (empty)
+- **Import File:** sql/database.sql
+
+### Tables Created:
+- `admin_users` - Admin accounts
+- `projects` - Portfolio projects
+- `services` - Service offerings
+- `leads` - Contact form submissions
+- `settings` - Site configuration
+- `blog_posts` - Blog articles
+- `blog_categories` - Blog categories
+- `blog_tags` - Blog tags
+- `blog_post_tags` - Post-tag relationships
+- `blog_seo` - SEO data per post
+
+---
+
+## Folder Structure
+
+```
+just_aj/
+├── index.php              # Home
+├── about.php              # About
+├── projects.php           # Projects (dynamic)
+├── services.php           # Services (dynamic)
+├── contact.php            # Contact form
+├── blog/                  # Blog module
+│   ├── index.php          # Blog listing
+│   ├── post.php           # Single post
+│   └── .htaccess          # URL rewriting
+├── admin/
+│   ├── login.php
+│   ├── logout.php
+│   ├── dashboard.php
+│   ├── settings.php
+│   ├── projects/          # CRUD
+│   ├── services/          # CRUD
+│   ├── leads/             # Management
+│   └── blog/              # Blog CMS
+│       ├── posts/         # Posts CRUD + SEO editor
+│       ├── categories/    # Categories CRUD
+│       └── tags/          # Tags CRUD
+├── includes/              # Core files
+│   ├── config.php
+│   ├── db.php
+│   ├── functions.php
+│   ├── auth.php
+│   ├── header.php
+│   ├── footer.php
+│   └── admin-*.php
+├── assets/
+│   ├── css/
+│   │   ├── style.css
+│   │   └── admin.css
+│   └── js/
+│       └── main.js
+├── sql/
+│   └── database.sql
+├── stitch/                 # Design assets (12 screens)
+├── uploads/                # File uploads
+├── future-modules/         # Placeholder for future
+│   ├── tools/
+│   ├── ai-writer/
+│   ├── products/
+│   └── analytics/
+├── robots.txt
+├── sitemap.xml
+└── README.md
+```
+
+---
+
+## Features Implemented
+
+### Public Website ✅
+- [x] Home page with hero, featured projects/services
+- [x] About page with values and skills
+- [x] Projects page (loads from database)
+- [x] Services page with process section
+- [x] Contact form (saves to leads table)
+- [x] Responsive black/white theme
+- [x] SEO meta tags, robots.txt, sitemap.xml
+
+### Blog System ✅ (FULL)
+- [x] Blog listing page with categories
+- [x] Single post with full SEO output
+- [x] URL rewriting (clean URLs)
+- [x] Related posts section
+- [x] Share buttons (Twitter, LinkedIn)
+- [x] View count tracking
+
+### Admin Panel ✅
+- [x] Secure login with password_verify()
+- [x] Session-based authentication
+- [x] Dashboard with stats
+- [x] Projects CRUD
+- [x] Services CRUD
+- [x] Leads management
+- [x] Settings management
+- [x] Dark premium admin theme
+
+### Blog Admin (Full CMS) ✅
+- [x] Posts CRUD with status (draft/published/scheduled)
+- [x] Categories CRUD
+- [x] Tags CRUD
+- [x] Featured posts
+- [x] Manual content textarea (no rich editor)
+
+### SEO Per Post ✅
+- [x] SEO Title, Description, Keywords
+- [x] Open Graph (OG) Title, Description, Image
+- [x] Twitter Cards
+- [x] Canonical URL
+- [x] Index/Follow settings
+- [x] Article meta (published time, author)
+
+---
+
+## Features NOT Implemented (Future)
+
+These are ready for future development:
+- [ ] AI Writer / Tools
+- [ ] Products / Digital downloads
+- [ ] Payments
+- [ ] Analytics
+- [ ] Rich text editor (TinyMCE removed - using plain textarea)
+
+---
+
+## Stitch Design Screens Downloaded
+
+Location: just_aj/stitch/
+
+| Screen | HTML | Screenshot |
+|--------|------|------------|
+| Home | ✓ | ✓ |
+| About | ✓ | ✓ |
+| Projects | ✓ | ✓ |
+| Services | ✓ | ✓ |
+| Contact | ✓ | ✓ |
+| Admin Login | ✓ | ✓ |
+| Admin Dashboard | ✓ | ✓ |
+| Projects List | ✓ | ✓ |
+| Edit Project | ✓ | ✓ |
+| Services List | ✓ | ✓ |
+| Leads List | ✓ | ✓ |
+| Edit Service | ✓ | ✓ |
+
+---
+
+## To Resume Development
+
+1. Start XAMPP (Apache + MySQL)
+2. Navigate to: http://localhost/just_aj/
+3. Admin: http://localhost/just_aj/admin/login.php
+4. Login: aj@justaj.local / admin123
+
+---
+
+## Notes
+
+- Code uses password_hash() and password_verify()
+- All SQL uses prepared statements
+- XSS protection via htmlspecialchars()
+- Error logs written to error.log
+- Session regenerated on login
+
+---
+
+## Author
+
+JUST AJ - Building tools, content, and systems for creators, students, and founders.

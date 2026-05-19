@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&amp;family=Geist:wght@100;300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+        }
+        .architectural-grid {
+            background-image: linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "inverse-primary": "#5d5f5f",
+                "on-surface": "#e2e2e2",
+                "surface-variant": "#353535",
+                "on-tertiary-fixed": "#1a1c1c",
+                "on-secondary-fixed": "#1a1c1c",
+                "surface-tint": "#c6c6c7",
+                "primary-fixed-dim": "#c6c6c7",
+                "on-secondary-container": "#b8b8b8",
+                "on-primary-container": "#636565",
+                "secondary-container": "#484949",
+                "background": "#000000",
+                "secondary-fixed-dim": "#c7c6c6",
+                "surface-container-low": "#1b1b1b",
+                "on-tertiary-container": "#636565",
+                "primary-container": "#e2e2e2",
+                "surface-container-high": "#2a2a2a",
+                "secondary": "#c7c6c6",
+                "on-surface-variant": "#c4c7c8",
+                "surface-container-lowest": "#0e0e0e",
+                "on-primary-fixed": "#1a1c1c",
+                "tertiary": "#ffffff",
+                "on-background": "#e2e2e2",
+                "error-container": "#93000a",
+                "inverse-on-surface": "#303030",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "surface-container-highest": "#353535",
+                "primary-fixed": "#e2e2e2",
+                "on-tertiary": "#2f3131",
+                "error": "#ffb4ab",
+                "on-secondary": "#2f3131",
+                "surface-dim": "#131313",
+                "on-secondary-fixed-variant": "#464747",
+                "on-error-container": "#ffdad6",
+                "surface-container": "#1f1f1f",
+                "outline-variant": "#444748",
+                "surface-bright": "#393939",
+                "on-primary": "#2f3131",
+                "primary": "#ffffff",
+                "inverse-surface": "#e2e2e2",
+                "on-tertiary-fixed-variant": "#454747",
+                "surface": "#131313",
+                "on-error": "#690005",
+                "on-primary-fixed-variant": "#454747",
+                "secondary-fixed": "#e3e2e2",
+                "tertiary-fixed": "#e2e2e2",
+                "tertiary-container": "#e2e2e2",
+                "outline": "#8e9192"
+              },
+              "borderRadius": {
+                "DEFAULT": "0px",
+                "lg": "0px",
+                "xl": "0px",
+                "full": "9999px"
+              },
+              "spacing": {
+                "stack-sm": "20px",
+                "margin-desktop": "64px",
+                "container-max": "1200px",
+                "unit": "4px",
+                "stack-lg": "80px",
+                "stack-md": "40px",
+                "margin-mobile": "20px",
+                "gutter": "24px"
+              },
+              "fontFamily": {
+                "body-lg": ["Geist"],
+                "label-sm": ["Geist"],
+                "display-lg-mobile": ["Playfair Display"],
+                "headline-xl-mobile": ["Playfair Display"],
+                "display-lg": ["Playfair Display"],
+                "body-md": ["Geist"],
+                "headline-xl": ["Playfair Display"],
+                "headline-md": ["Playfair Display"]
+              },
+              "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                "display-lg-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar Navigation Shell -->
+<header class="bg-background border-b border-outline-variant fixed top-0 w-full z-50">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-6 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-primary">JUST AJ</div>
+<div class="hidden md:flex items-center gap-stack-md">
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-200" href="#">Home</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-200" href="#">Projects</a>
+<a class="text-primary border-b border-primary pb-1 font-label-sm hover:text-primary transition-colors duration-200" href="#">Services</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-200" href="#">Contact</a>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+</div>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="px-margin-desktop max-w-container-max mx-auto mb-stack-lg">
+<div class="flex flex-col gap-unit">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Capabilities</span>
+<h1 class="font-display-lg text-display-lg text-primary max-w-4xl">Architectural Digital Solutions.</h1>
+</div>
+<p class="mt-stack-sm font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                We build high-performance systems for founders who value precision over noise. From intelligent automation to premium digital presence.
+            </p>
+</section>
+<!-- Service Bento Grid -->
+<section class="px-margin-desktop max-w-container-max mx-auto mb-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Website Development -->
+<div class="md:col-span-8 group relative bg-surface-container-low border border-outline-variant p-stack-md hover:border-primary transition-all duration-300">
+<div class="flex flex-col h-full justify-between gap-stack-md">
+<div>
+<span class="material-symbols-outlined text-4xl mb-stack-sm text-primary">terminal</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-unit">Website Development</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Clean, semantic code meeting world-class design standards. We prioritize speed, SEO, and structural integrity for lasting performance.</p>
+</div>
+<div class="flex items-center gap-unit text-primary font-label-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                            VIEW DETAILS <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- AI Tools & Automation -->
+<div class="md:col-span-4 bg-surface-container-low border border-outline-variant p-stack-md hover:border-primary transition-all duration-300 group">
+<div class="flex flex-col h-full justify-between gap-stack-md">
+<div>
+<span class="material-symbols-outlined text-4xl mb-stack-sm text-primary">memory</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-unit">AI Tools &amp; Automation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Injecting intelligence into your workflow. Custom LLM integrations and automated operation chains.</p>
+</div>
+<div class="text-primary font-label-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                            EXPLORE AI
+                        </div>
+</div>
+</div>
+<!-- Personal Brand Systems -->
+<div class="md:col-span-4 bg-surface-container-low border border-outline-variant p-stack-md hover:border-primary transition-all duration-300 group">
+<div class="flex flex-col h-full justify-between gap-stack-md">
+<div>
+<span class="material-symbols-outlined text-4xl mb-stack-sm text-primary">face</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-unit">Personal Brand Systems</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Engineered identity for founders. A comprehensive visual and narrative system that scales your influence.</p>
+</div>
+<div class="text-primary font-label-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                            GET THE BLUEPRINT
+                        </div>
+</div>
+</div>
+<!-- Content/SEO Systems -->
+<div class="md:col-span-8 bg-surface-container-low border border-outline-variant p-stack-md hover:border-primary transition-all duration-300 group">
+<div class="flex flex-col h-full justify-between gap-stack-md">
+<div>
+<span class="material-symbols-outlined text-4xl mb-stack-sm text-primary">history_edu</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-unit">Content/SEO Systems</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Programmatic content strategies designed to capture high-intent traffic. We build sustainable engines that grow while you sleep.</p>
+</div>
+<div class="flex items-center gap-unit text-primary font-label-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                            GROW VISIBILITY <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="bg-surface-container-lowest py-stack-lg border-y border-outline-variant relative overflow-hidden">
+<div class="architectural-grid absolute inset-0 opacity-20 pointer-events-none"></div>
+<div class="px-margin-desktop max-w-container-max mx-auto relative z-10">
+<div class="mb-stack-md">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Workflow</span>
+<h2 class="font-headline-xl text-headline-xl text-primary mt-unit">Methodical Execution.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter relative">
+<!-- Connector Line (Desktop) -->
+<div class="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-outline-variant -z-10"></div>
+<!-- Step 1 -->
+<div class="flex flex-col gap-unit">
+<div class="w-24 h-24 bg-background border border-outline-variant flex items-center justify-center text-primary font-headline-md mb-stack-sm">01</div>
+<h4 class="font-headline-md text-headline-md text-primary">Discover</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Deep-dive into your architectural needs, objectives, and market positioning.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col gap-unit">
+<div class="w-24 h-24 bg-background border border-outline-variant flex items-center justify-center text-primary font-headline-md mb-stack-sm">02</div>
+<h4 class="font-headline-md text-headline-md text-primary">Build</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Agile development cycles with extreme attention to detail and structural integrity.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col gap-unit">
+<div class="w-24 h-24 bg-background border border-outline-variant flex items-center justify-center text-primary font-headline-md mb-stack-sm">03</div>
+<h4 class="font-headline-md text-headline-md text-primary">Launch</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Precise deployment and systems testing to ensure a flawless market entry.</p>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col gap-unit">
+<div class="w-24 h-24 bg-background border border-outline-variant flex items-center justify-center text-primary font-headline-md mb-stack-sm">04</div>
+<h4 class="font-headline-md text-headline-md text-primary">Improve</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Continuous monitoring and optimization to scale your impact indefinitely.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-margin-desktop py-stack-lg max-w-container-max mx-auto text-center">
+<div class="flex flex-col items-center gap-stack-md">
+<h2 class="font-headline-xl text-headline-xl text-primary max-w-2xl mx-auto">Ready to engineer your next phase?</h2>
+<div class="flex flex-col md:flex-row gap-gutter">
+<button class="bg-primary text-background font-label-sm px-10 py-5 hover:opacity-80 transition-opacity uppercase tracking-widest font-bold">
+                        Start your project
+                    </button>
+<button class="bg-transparent border border-white text-primary font-label-sm px-10 py-5 hover:bg-white hover:text-black transition-all uppercase tracking-widest font-bold">
+                        View Portfolio
+                    </button>
+</div>
+</div>
+</section>
+<!-- Aesthetic Imagery Section -->
+<section class="w-full px-margin-desktop max-w-container-max mx-auto mb-stack-lg">
+<div class="h-[614px] w-full bg-surface-container overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="A cinematic low-angle photograph of a sleek obsidian-glass skyscraper against a dark moody twilight sky. The building features sharp architectural lines and rhythmic structural patterns, reflecting the minimalist aesthetic of the JUST AJ brand. High-contrast lighting emphasizes the deep blacks and subtle silver highlights of the facade, creating an atmosphere of sophisticated power and technological precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJLzg9w_CFVdDnYXm9_68yvt_Ey39M6MZMzhwZpw7U2NIbsNfbddhmB1fde3JcwWvHVcGKAAo2tc2Azu0_iTOBbLoOMvHR-6HgjDjIexgl7jZkZvrjKPvoREYOJ7cd3jmFcduWv90Ed_PXB9S-OIkF5uhg_8j0brc_IVrwk9VALhM4BgzDiF2wrkzzCTgdtiepm8ru65znacJVbtnq-coyNkCSg-mvv2V7PLA3owl1jvmAGcl2rbKp7oXDqcEBA8_T019bD02gZdo"/>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-background border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-md w-full max-w-container-max mx-auto">
+<div class="flex flex-col items-center md:items-start mb-stack-sm md:mb-0">
+<span class="font-headline-md text-headline-md font-black text-primary">JUST AJ</span>
+<p class="text-on-surface-variant font-label-sm mt-2">© 2024 JUST AJ. All rights reserved.</p>
+</div>
+<div class="flex gap-stack-md">
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for scrolling
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/80', 'backdrop-blur-md');
+            } else {
+                header.classList.remove('bg-black/80', 'backdrop-blur-md');
+            }
+        });
+
+        // Hover effect for steps
+        const steps = document.querySelectorAll('.flex.flex-col.gap-unit');
+        steps.forEach(step => {
+            step.addEventListener('mouseenter', () => {
+                const box = step.querySelector('.w-24');
+                if(box) box.classList.add('border-primary', 'bg-surface-container-high');
+            });
+            step.addEventListener('mouseleave', () => {
+                const box = step.querySelector('.w-24');
+                if(box) box.classList.remove('border-primary', 'bg-surface-container-high');
+            });
+        });
+    </script>
+</body></html>

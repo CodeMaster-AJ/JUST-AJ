@@ -1,0 +1,45 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Error logs
+error.log
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Database uploads (keep structure but not files)
+uploads/*
+!uploads/projects/
+!uploads/blog/
+!uploads/products/
+!uploads/general/
+uploads/*/
+
+# Session files
+/tmp/
+*.sess
+
+# Stitch design folder (optional - can push separately)
+# stitch/
+
+# Composer
+composer.phar
+vendor/
+
+# Node (if any)
+node_modules/
+npm-debug.log
+yarn-error.log

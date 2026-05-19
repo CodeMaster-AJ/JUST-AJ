@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #131313;
+            color: #e2e2e2;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#5d5f5f",
+                      "on-surface": "#e2e2e2",
+                      "surface-variant": "#353535",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "surface-tint": "#c6c6c7",
+                      "primary-fixed-dim": "#c6c6c7",
+                      "on-secondary-container": "#b8b8b8",
+                      "on-primary-container": "#636565",
+                      "secondary-container": "#484949",
+                      "background": "#131313",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "surface-container-low": "#1b1b1b",
+                      "on-tertiary-container": "#636565",
+                      "primary-container": "#e2e2e2",
+                      "surface-container-high": "#2a2a2a",
+                      "secondary": "#c7c6c6",
+                      "on-surface-variant": "#c4c7c8",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-primary-fixed": "#1a1c1c",
+                      "tertiary": "#ffffff",
+                      "on-background": "#e2e2e2",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#303030",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "surface-container-highest": "#353535",
+                      "primary-fixed": "#e2e2e2",
+                      "on-tertiary": "#2f3131",
+                      "error": "#ffb4ab",
+                      "on-secondary": "#2f3131",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed-variant": "#464747",
+                      "on-error-container": "#ffdad6",
+                      "surface-container": "#1f1f1f",
+                      "outline-variant": "#444748",
+                      "surface-bright": "#393939",
+                      "on-primary": "#2f3131",
+                      "primary": "#ffffff",
+                      "inverse-surface": "#e2e2e2",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "surface": "#131313",
+                      "on-error": "#690005",
+                      "on-primary-fixed-variant": "#454747",
+                      "secondary-fixed": "#e3e2e2",
+                      "tertiary-fixed": "#e2e2e2",
+                      "tertiary-container": "#e2e2e2",
+                      "outline": "#8e9192"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "20px",
+                      "margin-desktop": "64px",
+                      "container-max": "1200px",
+                      "unit": "4px",
+                      "stack-lg": "80px",
+                      "stack-md": "40px",
+                      "margin-mobile": "20px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Geist"],
+                      "label-sm": ["Geist"],
+                      "display-lg-mobile": ["Playfair Display"],
+                      "headline-xl-mobile": ["Playfair Display"],
+                      "display-lg": ["Playfair Display"],
+                      "body-md": ["Geist"],
+                      "headline-xl": ["Playfair Display"],
+                      "headline-md": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-background border-b border-outline-variant fixed top-0 w-full z-50">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-primary">JUST AJ</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-200" href="#">Home</a>
+<a class="text-primary border-b border-primary pb-1 font-label-sm" href="#">About</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-200" href="#">Projects</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-200" href="#">Services</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors duration-200" href="#">Contact</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Hero Section / Personal Story -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-7">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline mb-4 block">The Journey</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-8 leading-none">
+                        Student by day, <br/>Founder by night.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        The journey of JUST AJ started in a dorm room with a single line of code and a persistent curiosity. As a student navigating the intersection of technology and entrepreneurship, I realized that the future belongs to those who build their own systems. This is the narrative of an architect in training, crafting digital solutions that bridge the gap between imagination and execution.
+                    </p>
+</div>
+<div class="md:col-span-5 flex items-center justify-center">
+<div class="w-full aspect-[4/5] bg-surface-container-low border border-outline-variant relative overflow-hidden group">
+<img alt="AJ Portrait" class="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 transition-opacity duration-500" data-alt="A sophisticated, high-contrast black and white portrait of a young entrepreneur looking thoughtfully into the distance. The lighting is dramatic and moody, reminiscent of a high-end architectural photography style. The setting is a minimalist, modern interior with sharp lines and deep shadows, emphasizing the refined brutalist aesthetic of the brand. The overall mood is authoritative and visionary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5RLg7XXCrQvG0wsOL2j6Fy7vBBdAF2X7IB8-__Aj82FwbtYmoOi0PyaFjeDxTTleIlntDY6thdsc2knNdwqLdaaZmXk4YFkpUpkQ492YbTBXVh-9XZNgZbKpup3NKKqBYqB4ZFGLReMNFzNaIHy1xx0uk68qQAJ7YfQiVkQa_JxhK2ewoKnfJs9nGrqRKNFo1ZdOMzHaaTkqoXXIAWK6k4KJ20-KmZMv-ExV9zjlarizEYpyDCQN5366RZQql3kc50erS0GwKEqA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission Statement -->
+<section class="bg-surface-container-lowest border-y border-outline-variant py-stack-lg mb-stack-lg">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<h2 class="font-label-sm text-label-sm text-outline uppercase mb-6">Our Mission</h2>
+<p class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary max-w-4xl mx-auto italic leading-tight">
+                    "Building systems that scale creativity, ensuring that the signal always outweighs the noise."
+                </p>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-stack-lg">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-outline-variant pb-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Technical Arsenal</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The tools used to construct digital realities.</p>
+</div>
+<div class="font-label-sm text-label-sm text-outline hidden md:block">SKILLS / 2024</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="p-8 bg-surface-container-low border border-outline-variant hover:border-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;">code</span>
+<h4 class="font-label-sm text-label-sm text-primary mb-2">PHP / BACKEND</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Architecting robust server-side logic and scalable APIs for modern web applications.</p>
+</div>
+<div class="p-8 bg-surface-container-low border border-outline-variant hover:border-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;">database</span>
+<h4 class="font-label-sm text-label-sm text-primary mb-2">MYSQL / DATA</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Designing relational database structures that optimize for performance and data integrity.</p>
+</div>
+<div class="p-8 bg-surface-container-low border border-outline-variant hover:border-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;">psychology</span>
+<h4 class="font-label-sm text-label-sm text-primary mb-2">AI / AUTOMATION</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Leveraging generative models and machine learning to streamline complex creative workflows.</p>
+</div>
+<div class="p-8 bg-surface-container-low border border-outline-variant hover:border-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;">architecture</span>
+<h4 class="font-label-sm text-label-sm text-primary mb-2">UI / DESIGN</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Applying architectural minimalism to create interfaces that are as functional as they are beautiful.</p>
+</div>
+</div>
+</section>
+<!-- Values Cards -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-stack-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-12 text-center">Foundational Values</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Build -->
+<div class="group relative overflow-hidden bg-background border border-outline-variant p-10 flex flex-col justify-between aspect-square hover:bg-white transition-all duration-500">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-outline group-hover:text-background transition-colors">01</span>
+<span class="material-symbols-outlined text-primary group-hover:text-background transition-colors">construction</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-primary group-hover:text-background transition-colors">Build</h5>
+<p class="font-body-md text-body-md text-on-surface-variant group-hover:text-background opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                        The act of creation is the ultimate form of understanding.
+                    </p>
+</div>
+<!-- Learn -->
+<div class="group relative overflow-hidden bg-background border border-outline-variant p-10 flex flex-col justify-between aspect-square hover:bg-white transition-all duration-500">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-outline group-hover:text-background transition-colors">02</span>
+<span class="material-symbols-outlined text-primary group-hover:text-background transition-colors">school</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-primary group-hover:text-background transition-colors">Learn</h5>
+<p class="font-body-md text-body-md text-on-surface-variant group-hover:text-background opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                        A perpetual student mindset is the engine of innovation.
+                    </p>
+</div>
+<!-- Create -->
+<div class="group relative overflow-hidden bg-background border border-outline-variant p-10 flex flex-col justify-between aspect-square hover:bg-white transition-all duration-500">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-outline group-hover:text-background transition-colors">03</span>
+<span class="material-symbols-outlined text-primary group-hover:text-background transition-colors">palette</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-primary group-hover:text-background transition-colors">Create</h5>
+<p class="font-body-md text-body-md text-on-surface-variant group-hover:text-background opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                        Design without compromise; function without clutter.
+                    </p>
+</div>
+<!-- Grow -->
+<div class="group relative overflow-hidden bg-background border border-outline-variant p-10 flex flex-col justify-between aspect-square hover:bg-white transition-all duration-500">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-outline group-hover:text-background transition-colors">04</span>
+<span class="material-symbols-outlined text-primary group-hover:text-background transition-colors">trending_up</span>
+</div>
+<h5 class="font-headline-md text-headline-md text-primary group-hover:text-background transition-colors">Grow</h5>
+<p class="font-body-md text-body-md text-on-surface-variant group-hover:text-background opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                        Scaling impact through disciplined systems and execution.
+                    </p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-stack-lg">
+<div class="border border-outline-variant p-stack-md md:p-stack-lg text-center bg-surface-container-lowest">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-8">Ready to build something lasting?</h2>
+<button class="bg-primary text-on-primary font-bold px-12 py-5 rounded-none hover:opacity-80 transition-opacity">
+                    Start a Conversation
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-stack-md w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black text-primary mb-6 md:mb-0">JUST AJ</div>
+<div class="flex flex-col md:flex-row items-center gap-8">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 JUST AJ. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for smooth scrolling or hover effects can go here
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body></html>

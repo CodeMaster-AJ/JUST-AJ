@@ -1,0 +1,62 @@
+<?php
+/**
+ * Blog Sitemap Generator
+ */
+header('Content-Type: application/xml; charset=utf-8');
+
+require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/functions.php';
+
+$baseUrl = 'http://localhost/just_aj';
+
+$xml = '<?xml version="1.0" encoding="UTF-8"?>';
+$xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+// Static pages
+$staticPages = [
+    ['loc' => $baseUrl . '/', 'priority' => '1.0', 'changefreq' => 'weekly'],
+    ['loc' => $baseUrl . '/about.php', 'priority' => '0.8', 'changefreq' => 'monthly'],
+    ['loc' => $baseUrl . '/projects.php', 'priority' => '0.9', 'changefreq' => 'weekly'],
+    ['loc' => $baseUrl . '/services.php', 'priority' => '0.9', 'changefreq' => 'weekly'],
+    ['loc' => $baseUrl . '/contact.php', 'priority' => '0.7', 'changefreq' => 'monthly'],
+    ['loc' => $baseUrl . '/blog/', 'priority' => '0.9', 'changefreq' => 'daily'],
+];
+
+foreach ($staticPages as $page) {
+    $xml .= '<url>';
+    $xml .= '<loc>' . $page['loc'] . '</loc>';
+    $xml .= '<lastmod>' . date('Y-m-d') . '</lastmod>';
+    $xml .= '<changefreq>' . $page['changefreq'] . '</changefreq>';
+    $xml .= '<priority>' . $page['priority'] . '</priority>';
+    $xml .= '</url>';
+}
+
+// Blog posts
+$stmt = $pdo->query('SELECT slug, updated_at FROM blog_posts WHERE status = "published" ORDER BY updated_at DESC');
+$posts = $stmt->fetchAll();
+
+foreach ($posts as $post) {
+    $xml .= '<url>';
+    $xml .= '<loc>' . $baseUrl . '/blog/' . $post['slug'] . '</loc>';
+    $xml .= '<lastmod>' . date('Y-m-d', strtotime($post['updated_at'])) . '</lastmod>';
+    $xml .= '<changefreq>monthly</changefreq>';
+    $xml .= '<priority>0.8</priority>';
+    $xml .= '</url>';
+}
+
+// Blog categories
+$stmt = $pdo->query('SELECT slug FROM blog_categories');
+$categories = $stmt->fetchAll();
+
+foreach ($categories as $cat) {
+    $xml .= '<url>';
+    $xml .= '<loc>' . $baseUrl . '/blog/?category=' . $cat['slug'] . '</loc>';
+    $xml .= '<lastmod>' . date('Y-m-d') . '</lastmod>';
+    $xml .= '<changefreq>weekly</changefreq>';
+    $xml .= '<priority>0.6</priority>';
+    $xml .= '</url>';
+}
+
+$xml .= '</urlset>';
+echo $xml;
