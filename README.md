@@ -1,6 +1,6 @@
 # JUST AJ Brand Portal - Project Status
 
-## Current State: COMPLETE (v6) ✅
+## Current State: COMPLETE (v7) ✅
 
 Date: May 19, 2026
 
@@ -54,6 +54,7 @@ A personal brand platform built with native PHP + MySQL for XAMPP.
 - `tools` - External tools directory
 - `product_categories` - Product categories
 - `products` - Digital products
+- `orders` - Purchase orders
 
 ---
 
@@ -69,13 +70,19 @@ just_aj/
 ├── blog/                  # Blog module
 │   ├── index.php          # Blog listing
 │   ├── post.php           # Single post
-│   └── .htaccess          # URL rewriting
+│   ├── .htaccess          # URL rewriting
+│   ├── checkout.php        # Checkout page
+│   ├── verify.php         # Payment verification
+│   └── success.php        # Payment success
 ├── tools/                 # Tools module
 │   ├── index.php          # Tools directory
 │   └── redirect.php       # Redirect with tracking
 ├── products/              # Products module
 │   ├── index.php          # Products listing
-│   └── download.php       # Download handler
+│   ├── checkout.php        # Checkout with Razorpay
+│   ├── download.php       # Download handler
+│   ├── verify.php         # Payment verification
+│   └── success.php        # Success page
 ├── admin/
 │   ├── login.php
 │   ├── logout.php
@@ -85,15 +92,13 @@ just_aj/
 │   ├── services/          # CRUD
 │   ├── leads/             # Management
 │   ├── blog/              # Blog CMS
-│   │   ├── posts/         # Posts CRUD + SEO editor
-│   │   ├── categories/    # Categories CRUD
-│   │   └── tags/          # Tags CRUD
 │   ├── tools/             # Tools CMS
 │   │   ├── tools/         # Tools CRUD
-│   │   └── categories/    # Categories CRUD
+│   │   └── categories/     # Categories CRUD
 │   └── products/          # Products CMS
 │       ├── products/      # Products CRUD
-│       └── categories/    # Categories CRUD
+│       ├── categories/     # Categories CRUD
+│       └── orders/         # Orders management
 ├── includes/              # Core files
 │   ├── config.php
 │   ├── db.php
@@ -102,7 +107,10 @@ just_aj/
 │   ├── header.php
 │   ├── footer.php
 │   ├── icon-selector.php  # FontAwesome icon picker
-│   └── admin-*.php
+│   ├── razorpay-config.php # Razorpay API keys (gitignored)
+│   ├── razorpay.php       # Razorpay API helper
+│   ├── smtp-config.php   # Gmail SMTP (gitignored)
+│   └── mailer.php        # Email sender
 ├── assets/
 │   ├── css/
 │   │   ├── style.css
@@ -180,10 +188,20 @@ just_aj/
 - [x] Free/Paid product filtering
 - [x] Featured products section
 - [x] Product image previews
-- [x] Download tracking for free products
-- [x] Admin CRUD for products and categories
-- [x] Modern card-based product display
-- [x] Payment integration placeholder (coming soon)
+- [x] Download tracking for all products
+
+### Payment System ✅
+- [x] Razorpay integration (Test mode)
+- [x] Checkout page with Razorpay widget
+- [x] Payment verification
+- [x] Order management in admin
+- [x] Refund handling
+
+### Email System ✅
+- [x] Gmail SMTP configuration
+- [x] Automatic download link emails
+- [x] Purchase confirmation emails
+- [x] HTML email templates
 
 ---
 
@@ -191,9 +209,20 @@ just_aj/
 
 These are ready for future development:
 - [ ] AI Writer / Tools
-- [ ] Payment integration (Stripe/PayPal)
 - [ ] Analytics
+- [ ] Mobile app
 - [ ] Rich text editor (TinyMCE removed - using plain textarea)
+
+---
+
+## Configuration Files (Not in Git)
+
+These files contain sensitive data and are NOT pushed to GitHub:
+
+1. **includes/razorpay-config.php** - Razorpay API keys
+2. **includes/smtp-config.php** - Gmail SMTP credentials
+
+Set these up manually after cloning the repo.
 
 ---
 
@@ -236,7 +265,9 @@ Location: just_aj/stitch/
 - Session regenerated on login
 - FontAwesome icons for tools and products modules
 - Tools redirect with click tracking
-- Products download available for free products only (paid requires payment integration)
+- Products download with order verification
+- Payment via Razorpay (Test mode active)
+- Emails via Gmail SMTP
 
 ---
 
