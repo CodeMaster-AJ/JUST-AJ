@@ -95,12 +95,12 @@ $siteTagline = getSetting('site_tagline', 'Digital products for creators');
                                                 <?php if ($product['is_free'] === 'yes'): ?>
                                                     <span class="price-free">FREE</span>
                                                 <?php else: ?>
-                                                    $<?php echo number_format($product['price'], 2); ?>
+                                                    ₹<?php echo number_format($product['price'], 2); ?>
                                                 <?php endif; ?>
                                             </span>
-                                            <a href="<?php echo BASE_URL; ?>/products/download.php?slug=<?php echo $product['slug']; ?>" 
+                                            <a href="<?php echo BASE_URL; ?>/products/checkout.php?slug=<?php echo $product['slug']; ?>" 
                                                class="product-link">
-                                                <?php echo $product['is_free'] === 'yes' ? 'Download' : 'Get Now'; ?>
+                                                <?php echo $product['is_free'] === 'yes' ? 'Download' : 'Buy Now'; ?>
                                                 <i class="fa-solid fa-arrow-right"></i>
                                             </a>
                                         </div>
@@ -165,12 +165,12 @@ $siteTagline = getSetting('site_tagline', 'Digital products for creators');
                                                 <?php if ($product['is_free'] === 'yes'): ?>
                                                     <span class="price-free">FREE</span>
                                                 <?php else: ?>
-                                                    $<?php echo number_format($product['price'], 2); ?>
+                                                    ₹<?php echo number_format($product['price'], 2); ?>
                                                 <?php endif; ?>
                                             </span>
-                                            <a href="<?php echo BASE_URL; ?>/products/download.php?slug=<?php echo $product['slug']; ?>" 
+                                            <a href="<?php echo BASE_URL; ?>/products/checkout.php?slug=<?php echo $product['slug']; ?>" 
                                                class="product-link">
-                                                <?php echo $product['is_free'] === 'yes' ? 'Download' : 'Get Now'; ?>
+                                                <?php echo $product['is_free'] === 'yes' ? 'Download' : 'Buy Now'; ?>
                                                 <i class="fa-solid fa-arrow-right"></i>
                                             </a>
                                         </div>

@@ -91,6 +91,12 @@
                                 Categories
                             </a>
                         </li>
+                        <li class="nav-item nav-sub">
+                            <a href="<?php echo SITE_URL; ?>/admin/products/orders/" class="nav-link <?php echo $currentPage === 'product-orders' ? 'active' : ''; ?>">
+                                <span class="nav-icon">◇</span>
+                                Orders
+                            </a>
+                        </li>
                     </ul>
                     <div class="nav-divider"></div>
                     <p class="nav-label">Coming Soon</p>
