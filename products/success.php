@@ -120,6 +120,12 @@ $pageTitle = 'Payment Successful';
                 </div>
                 
                 <?php if (!empty($order['file_path'])): ?>
+                    <div style="padding: var(--spacing-4); background: rgba(34, 197, 94, 0.1); border-radius: var(--border-radius); margin-bottom: var(--spacing-4);">
+                        <p style="color: #22c55e; margin: 0;">
+                            <i class="fa-solid fa-envelope"></i>
+                            Download link sent to your email!
+                        </p>
+                    </div>
                     <a href="<?php echo BASE_URL; ?>/products/download.php?order=<?php echo htmlspecialchars($order['razorpay_order_id']); ?>" 
                        class="btn btn-primary btn-download">
                         <i class="fa-solid fa-download"></i>
@@ -129,7 +135,7 @@ $pageTitle = 'Payment Successful';
                     <div style="padding: var(--spacing-4); background: rgba(251, 191, 36, 0.1); border-radius: var(--border-radius); margin-bottom: var(--spacing-4);">
                         <p style="color: #fbbf24; margin: 0;">
                             <i class="fa-solid fa-info-circle"></i>
-                            Download not available yet. We'll email you the download link.
+                            Download link sent to your email!
                         </p>
                     </div>
                     <a href="<?php echo BASE_URL; ?>/products/" class="btn btn-secondary">

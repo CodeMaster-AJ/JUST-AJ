@@ -23,4 +23,25 @@ if (!isset($input['razorpay_order_id']) || !isset($input['razorpay_payment_id'])
 
 $result = verifyProductPayment($input);
 
+// Send download email after successful payment
+if ($result['success']) {
+    $order = getOrderByRazorpayId($input['razorpay_order_id']);
+    
+    if ($order && !empty($order['customer_email'])) {
+        $downloadUrl = BASE_URL . '/products/download.php?order=' . $input['razorpay_order_id'];
+        
+        // Check if product has file path
+        if (!empty($order['file_path'])) {
+            // Send download email
+            sendPurchaseEmail(
+                $order['customer_email'],
+                $order['customer_name'],
+                $order['product_name'],
+                $order['amount'],
+                $downloadUrl
+            );
+        }
+    }
+}
+
 echo json_encode($result);

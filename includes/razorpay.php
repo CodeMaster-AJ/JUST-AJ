@@ -9,6 +9,7 @@ if (!defined('AJOS_INIT')) {
 }
 
 require_once __DIR__ . '/razorpay-config.php';
+require_once __DIR__ . '/mailer.php';
 
 class RazorpayAPI {
     private $keyId;

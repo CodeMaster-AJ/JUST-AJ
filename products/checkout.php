@@ -69,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $product['is_free'] === 'no') {
 // Handle AJAX request for free products
 if ($product['is_free'] === 'yes' && isset($_POST['action']) && $_POST['action'] === 'free_download') {
     $email = sanitize($_POST['email'] ?? '');
+    $name = sanitize($_POST['name'] ?? 'Valued Customer');
     
     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo json_encode(['success' => false, 'message' => 'Valid email is required']);
@@ -77,18 +78,27 @@ if ($product['is_free'] === 'yes' && isset($_POST['action']) && $_POST['action']
     
     // Create order for free product
     try {
-        $orderData = createProductOrder($product, 'Free Download', $email);
+        $orderData = createProductOrder($product, $name, $email);
         
         // Immediately mark as paid for free products
         global $pdo;
-        $stmt = $pdo->prepare('UPDATE orders SET status = "paid", payment_id = "free_" . Razorpay_order_id WHERE id = ?');
-        $stmt->execute([$pdo->lastInsertId()]);
+        $orderId = $pdo->lastInsertId();
+        $stmt = $pdo->prepare('UPDATE orders SET status = "paid", payment_id = ? WHERE id = ?');
+        $stmt->execute(['free_' . $orderData['razorpay_order_id'], $orderId]);
         
-        // Redirect to download
+        // Send download email
+        $downloadUrl = BASE_URL . '/products/download.php?order=' . $orderData['razorpay_order_id'];
+        
+        if (!empty($product['file_path'])) {
+            sendDownloadEmail($email, $name, $product['name'], $downloadUrl, false);
+        }
+        
+        // Return download URL
         header('Content-Type: application/json');
         echo json_encode([
             'success' => true,
-            'download_url' => BASE_URL . '/products/download.php?order=' . $orderData['razorpay_order_id']
+            'download_url' => $downloadUrl,
+            'email_sent' => !empty($product['file_path'])
         ]);
         exit;
         
