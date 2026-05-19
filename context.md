@@ -263,3 +263,81 @@ error.log
 ## Author & Purpose
 
 **JUST AJ** - Building tools, content, and systems for creators, students, and founders.
+
+---
+
+# AI STARTUP PROMPT
+
+**Copy and paste the following at the start of a new conversation:**
+
+---
+
+You are now working on the JUST AJ project. This is a personal brand portal built with native PHP + MySQL running on XAMPP.
+
+## Quick Start
+- **Project Location:** /Applications/XAMPP/xamppfiles/htdocs/just_aj/
+- **Website:** http://localhost/just_aj/
+- **Admin:** http://localhost/just_aj/admin/login.php
+- **Admin Login:** aj@justaj.local / admin123
+
+## Tech Stack
+- Native PHP (no framework)
+- MySQL database named `just_aj`
+- Razorpay for payments (Test mode)
+- Gmail SMTP for emails
+- FontAwesome 6 for icons
+- Custom CSS styling (black/white theme)
+
+## Important Rules
+
+### File Operations
+- Always read files before editing
+- Use `htmlspecialchars()` for XSS protection
+- All SQL queries must use prepared statements
+- Sensitive config files are NOT in git: `includes/razorpay-config.php` and `includes/smtp-config.php`
+
+### Code Patterns
+```php
+// Database connection
+require_once __DIR__ . '/includes/db.php';
+
+// Admin authentication
+require_once __DIR__ . '/includes/auth.php';
+
+// Sanitization
+sanitize($input);
+
+// XSS protection
+htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
+```
+
+### Testing
+- Test changes at http://localhost/just_aj/
+- Check admin panel works correctly
+- For email testing, configure includes/smtp-config.php with your Gmail app password
+
+### Version History
+- v7 (Current): Fixed free products - now skip Razorpay and create order directly
+- Previous: Full blog CMS, tools directory, products store with Razorpay
+
+### To Resume Work
+1. Read context.md for full project details
+2. Start XAMPP (Apache + MySQL)
+3. Access admin at http://localhost/just_aj/admin/login.php
+4. Make changes and test
+
+### Common Tasks
+- **Add blog post:** Admin → Blog → Add New Post
+- **Add product:** Admin → Products → Add Product (set is_free=yes for free products)
+- **View leads:** Admin → Leads
+- **Update settings:** Admin → Settings
+
+### Security
+- All SQL uses prepared statements
+- Passwords hashed with password_hash()
+- Sessions regenerated on login
+- .gitignore excludes sensitive config files
+
+---
+
+**You are now ready to work on JUST AJ. Begin by exploring the codebase or await the user's instructions.**
