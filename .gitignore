@@ -10,6 +10,10 @@ error.log
 .env.local
 .env.production
 
+# Sensitive API Keys
+includes/razorpay-config.php
+includes/payment-config.php
+
 # IDE
 .idea/
 .vscode/
